@@ -6,7 +6,7 @@ function goToSection(id: string) {
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2  rounded-full z-50  bg-white/80 backdrop-blur-sm font-[Helvetica] whitespace-nowrap">
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2  rounded-full z-50  bg-gray-200 backdrop-blur-sm font-[Helvetica] whitespace-nowrap">
       <div className="mx-auto flex max-w-7xl items-center justify-between py-4 px-6">
         <span className="text-sm font-semibold tracking-tight text-gray-900 mr-8">
           eshu.earth
