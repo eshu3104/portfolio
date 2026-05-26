@@ -1,6 +1,7 @@
 "use client"
 import {useState} from "react"
 import Timeline from "./Timeline";
+import Projects from "./Projects";
 
 
 export default function Tabs() {
@@ -23,7 +24,7 @@ export default function Tabs() {
             </div>
 
             {activeTab === "timeline" && <div><Timeline/></div>}
-            {activeTab === "projects" && <div>Projects content</div>}
+            {activeTab === "projects" && <div><Projects/></div>}
             {activeTab === "skills" && <div>Skills content</div>}
 
 
