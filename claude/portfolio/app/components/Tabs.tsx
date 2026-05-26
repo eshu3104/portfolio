@@ -2,6 +2,7 @@
 import {useState} from "react"
 import Timeline from "./Timeline";
 import Projects from "./Projects";
+import Skills from "./Skills";
 
 
 export default function Tabs() {
@@ -25,7 +26,7 @@ export default function Tabs() {
 
             {activeTab === "timeline" && <div><Timeline/></div>}
             {activeTab === "projects" && <div><Projects/></div>}
-            {activeTab === "skills" && <div>Skills content</div>}
+            {activeTab === "skills" && <div> <Skills/> </div>}
 
 
 
