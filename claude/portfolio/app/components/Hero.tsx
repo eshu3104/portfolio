@@ -1,54 +1,48 @@
 "use client"
+import { Send } from "lucide-react"
 
-export default function Hero() { 
+export default function Hero() {
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center gap-6" id="home">   
-            {/* 1. Name Heading */}
+        <div className="min-h-screen flex flex-col items-center pt-32 gap-6" id="home">
+
+            {/* 1. Name Heading — stays at top */}
             <h1 className="text-4xl font-bold">Hi! My name is Eshu</h1>
-            
-            {/* 2. Memoji Placeholder */}
-            <div className="rounded-full bg-gray-200 w-32 h-32 " ></div>
 
-            {/* 3. Chat UI Shell Container */}
-            <div className="rounded-2xl max-w-xl w-full border border-gray-200 bg-gray-50 backdrop-blur-m p-6 shadow-sm flex flex-col gap-4 ">
-                
-                {/* Layer A: Response Display Area */}
-                <div className="h-40 overflow-y-auto pr-2 flex flex-col justify-end">
-                    <div className="bg-gray-100 text-gray-800 rounded-2xl rounded-tl-none p-4 max-w-[85%] text-sm self-start shadow-sm">
-                        Hi! I'm Eshu's AI assistant. Ask me about his experience at UVic/IIT, his hackathon projects, or his full-stack skills!
-                    </div>
-                </div>
+            {/* 2. Avatar */}
+            <div className="rounded-full bg-gray-200 w-36 h-36 mt-8" />
 
-                {/* Layer B: Suggestion Chips */}
-                <div className="flex flex-wrap gap-2">
-                    <button className="text-xs bg-white hover:bg-gray-100 text-gray-700 border border-gray-200 px-3 py-1.5 rounded-full transition-colors font-medium cursor-pointer shadow-sm">
-                        What's his tech stack?
-                    </button>
-                    <button className="text-xs bg-white hover:bg-gray-100 text-gray-700 border border-gray-200 px-3 py-1.5 rounded-full transition-colors font-medium cursor-pointer shadow-sm">
-                        See hackathon projects
-                    </button>
-                    <button className="text-xs bg-white hover:bg-gray-100 text-gray-700 border border-gray-200 px-3 py-1.5 rounded-full transition-colors font-medium cursor-pointer shadow-sm">
-                        Is he open to co-ops?
-                    </button>
-                </div>
+            {/* 3. Large name below avatar */}
+            <h2 className="text-6xl font-bold tracking-tight">Eshu</h2>
 
-                {/* Layer C: Input Bar */}
-                <div className="flex gap-2 w-full">
-                    <input 
-                        type="text" 
-                        placeholder="Ask me anything..." 
-                        disabled
-                        className="flex-1 bg-white border border-gray-200 placeholder-gray-400 rounded-xl px-4 py-2.5 text-sm outline-none  disabled:cursor-not-allowed shadow-inner"
-                    />
-                    <button 
-                        disabled
-                        className="bg-gray-900 text-white px-4 py-2.5 rounded-xl text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-opacity shadow-sm"
-                    >
-                        Send
-                    </button>
-                </div>
-
+            {/* 4. Suggestion Chips */}
+            <div className="flex flex-wrap justify-center gap-3 mt-2">
+                <button className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2.5 rounded-full transition-colors font-medium cursor-pointer">
+                    What's his tech stack?
+                </button>
+                <button className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2.5 rounded-full transition-colors font-medium cursor-pointer">
+                    See hackathon projects
+                </button>
+                <button className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2.5 rounded-full transition-colors font-medium cursor-pointer">
+                    Is he open to co-ops?
+                </button>
             </div>
+
+            {/* 5. Input Bar */}
+            <div className="flex items-center gap-3 max-w-xl w-full px-4">
+                <input
+                    type="text"
+                    placeholder="Ask me anything..."
+                    disabled
+                    className="flex-1 bg-gray-100 border-none placeholder-gray-400 rounded-full px-6 py-3.5 text-sm outline-none disabled:cursor-not-allowed"
+                />
+                <button
+                    disabled
+                    className="bg-gray-900 text-white w-12 h-12 rounded-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-opacity shrink-0"
+                >
+                    <Send size={16} className="translate-x-0.5" />
+                </button>
+            </div>
+
         </div>
-    );
+    )
 }
