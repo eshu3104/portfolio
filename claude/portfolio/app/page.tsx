@@ -1,7 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Tabs from "./components/Tabs";
-import Timeline from "./components/Timeline";
 
 
 export default function Home() {
