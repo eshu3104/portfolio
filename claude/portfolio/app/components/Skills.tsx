@@ -18,7 +18,7 @@ return (
     <div className="space-y-6">
       {categories.map((category) => (
         <div key={category.label}>
-          <p className="text-sm font-medium text-gray-500 mb-2">{category.label}</p>
+          <p className="text-sm font-medium text-gray-600 mb-2">{category.label}</p>
             <div className="flex flex-wrap gap-2 mt-1">
             {category.items.map((skill) => (
               <span key={skill} className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">

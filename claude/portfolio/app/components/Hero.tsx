@@ -6,13 +6,13 @@ export default function Hero() {
         <div className="min-h-screen flex flex-col items-center pt-32 gap-6" id="home">
 
             {/* 1. Name Heading — stays at top */}
-            <h1 className="text-4xl font-bold">Hi! My name is Eshu</h1>
+            <h1 className="text-3xl font-semibold tracking-tight">Hi! My name is Eshu</h1>
 
             {/* 2. Avatar */}
             <div className="rounded-full bg-gray-200 w-36 h-36 mt-8" />
 
             {/* 3. Large name below avatar */}
-            <h2 className="text-6xl font-bold tracking-tight">Eshu</h2>
+            <h2 className="text-5xl font-bold tracking-tight">Eshu</h2>
 
             {/* 4. Suggestion Chips */}
             <div className="flex flex-wrap justify-center gap-3 mt-2">
@@ -33,7 +33,7 @@ export default function Hero() {
                     type="text"
                     placeholder="Ask me anything..."
                     disabled
-                    className="flex-1 bg-gray-100 border-none placeholder-gray-400 rounded-full px-6 py-3.5 text-sm outline-none disabled:cursor-not-allowed"
+                    className="flex-1 bg-gray-100 border border-gray-200 placeholder-gray-400 rounded-full px-6 py-3.5 text-sm outline-none disabled:cursor-not-allowed"
                 />
                 <button
                     disabled
