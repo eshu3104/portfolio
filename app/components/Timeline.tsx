@@ -20,17 +20,17 @@ function ThumbnailCard({ exp, onClick }: { exp: Experience; onClick: () => void 
   return (
     <div
       onClick={onClick}
-      className="cursor-pointer border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md hover:border-gray-300 transition-all max-w-xs w-full"
+      className="cursor-pointer border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md hover:border-gray-300 transition-all max-w-xs w-full"
     >
-      <p className="font-semibold text-sm">{exp.title}</p>
-      <p className="text-xs text-gray-500">{exp.subtitle}</p>
-      <p className="text-xs text-gray-400 mt-1">{exp.date}</p>
+      <p className="font-semibold text-sm text-gray-900">{exp.title}</p>
+      <p className="text-xs text-gray-600">{exp.subtitle}</p>
+      <p className="text-xs text-gray-500 mt-1">{exp.date}</p>
       <div className="flex flex-wrap gap-1 mt-2">
         {exp.tags.slice(0, 3).map((tag) => (
           <span key={tag} className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">{tag}</span>
         ))}
         {exp.tags.length > 3 && (
-          <span className="text-xs text-gray-400 px-1 py-1">+{exp.tags.length - 3}</span>
+          <span className="text-xs text-gray-500 px-1 py-1">+{exp.tags.length - 3}</span>
         )}
       </div>
     </div>
@@ -79,9 +79,9 @@ export default function Timeline() {
           >
             <div className="flex justify-between items-start mb-4">
               <div>
-                <p className="font-semibold text-lg">{selected.title}</p>
-                <p className="text-sm text-gray-500">{selected.subtitle}</p>
-                <p className="text-xs text-gray-400 mt-1">{selected.date} · {selected.location}</p>
+                <p className="font-semibold text-base text-gray-900">{selected.title}</p>
+                <p className="text-sm text-gray-600">{selected.subtitle}</p>
+                <p className="text-xs text-gray-500 mt-1">{selected.date} · {selected.location}</p>
               </div>
               <button onClick={() => setSelected(null)} className="text-gray-400 hover:text-gray-600 text-xl">✕</button>
             </div>

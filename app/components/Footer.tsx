@@ -16,7 +16,7 @@ export default function Footer() {
         <footer className="border-t px-4" id="contact">
             <div className="max-w-4xl mx-auto pt-16 pb-12">
 
-                <h2 className="text-3xl font-bold text-center mb-12">Get In Touch</h2>
+                <h2 className="text-2xl font-semibold tracking-tight text-center mb-12">Get In Touch</h2>
 
                 <div className="flex flex-col md:flex-row gap-10">
 
@@ -24,35 +24,35 @@ export default function Footer() {
                     <div className="flex-1 flex flex-col gap-4">
 
                         <div className="flex flex-col gap-1.5">
-                            <label className="text-sm font-medium text-gray-700">Name</label>
+                            <label className="text-sm font-medium text-gray-600">Name</label>
                             <input
                                 type="text"
                                 placeholder="Your name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
-                                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300"
+                                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-gray-300"
                             />
                         </div>
 
                         <div className="flex flex-col gap-1.5">
-                            <label className="text-sm font-medium text-gray-700">Email</label>
+                            <label className="text-sm font-medium text-gray-600">Email</label>
                             <input
                                 type="email"
                                 placeholder="your@email.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300"
+                                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-gray-300"
                             />
                         </div>
 
                         <div className="flex flex-col gap-1.5">
-                            <label className="text-sm font-medium text-gray-700">Message</label>
+                            <label className="text-sm font-medium text-gray-600">Message</label>
                             <textarea
                                 placeholder="Your message..."
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
                                 rows={5}
-                                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 resize-none"
+                                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-gray-300 resize-none"
                             />
                         </div>
 
@@ -73,7 +73,7 @@ export default function Footer() {
                             eshubelgotra@uvic.ca
                         </div>
 
-                        <p className="text-sm text-gray-500 leading-relaxed">
+                        <p className="text-sm text-gray-600 leading-relaxed">
                             I'm always interested in hearing about new opportunities and collaborations. Feel free to reach out if you'd like to connect!
                         </p>
 
@@ -92,7 +92,7 @@ export default function Footer() {
 
             {/* Copyright */}
             <div className="border-t border-gray-200">
-                <p className="text-center text-sm text-gray-400 py-6">
+                <p className="text-center text-sm text-gray-500 py-6">
                     © 2026 Eshu. All rights reserved.
                 </p>
             </div>
