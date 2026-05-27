@@ -1,6 +1,9 @@
 "use client";
 
-function goToSection(id: string) {
+function goToSection(id: string, tab?: "timeline" | "projects" | "skills") {
+    if (tab) {
+      window.location.hash = tab
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
 }
 
@@ -14,9 +17,9 @@ export default function Navbar() {
 
         <div className="flex items-center gap-4 text-sm">
           <button onClick={() => goToSection("home")} className="text-gray-600 transition-colors hover:text-gray-900">Home</button>
-          <button onClick={() => goToSection("timeline")} className="text-gray-600 transition-colors hover:text-gray-900">Timeline</button>
-          <button onClick={() => goToSection("projects")} className="text-gray-600 transition-colors hover:text-gray-900">Projects</button>
-          <button onClick={() => goToSection("skills")} className="text-gray-600 transition-colors hover:text-gray-900">Skills</button>
+          <button onClick={() => goToSection("timeline", "timeline")} className="text-gray-600 transition-colors hover:text-gray-900">Timeline</button>
+          <button onClick={() => goToSection("timeline", "projects")} className="text-gray-600 transition-colors hover:text-gray-900">Projects</button>
+          <button onClick={() => goToSection("timeline", "skills")} className="text-gray-600 transition-colors hover:text-gray-900">Skills</button>
           <button onClick={() => goToSection("contact")} className="text-gray-600 transition-colors hover:text-gray-900">Contact</button>
         </div>
       </div>
