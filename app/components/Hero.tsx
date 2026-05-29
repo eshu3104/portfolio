@@ -245,7 +245,19 @@ export default function Hero() {
                     >
                         <Send size={16} className="translate-x-0.5" />
                     </button>
+                    
+                    
                 </motion.div>
+                {/* Privacy notice */}
+<motion.p
+    className="text-xs text-center text-gray-400 dark:text-gray-500 -mt-2"
+    {...fadeUp(0.7)}
+>
+    Chats may be logged for security.{" "}
+    <a href="/privacy" className="underline underline-offset-2 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+        Privacy Policy
+    </a>
+</motion.p>
 
                 {/* Scroll hint */}
                 <AnimatePresence>
