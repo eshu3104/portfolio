@@ -65,17 +65,22 @@ async function handleSend(overrideQuestion?: string) {
             {/* 1. Name Heading */}
             <h1 className="text-3xl font-semibold tracking-tight">Hi! My name is Eshu</h1>
 
+            <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+                Say hi to my digital twin 👾
+            </p>
+
             {/* 2. Avatar */}
             <Image
                 src="/images/avatar.jpg"
                 alt="Eshu"
                 width={144}
                 height={144}
-                className="rounded-full object-cover w-36 h-36 mt-8"
+                className="rounded-full object-cover w-36 h-36 mt-2"
             />
 
             {/* 3. Large name below avatar */}
-            <h2 className="text-5xl font-bold tracking-tight">Eshu</h2>
+            {messages.length === 0 && (
+            <h2 className="text-5xl font-bold tracking-tight">Eshu</h2> )}
 
             {/* 4. Suggestion Chips */}
             {messages.length === 0 && (
@@ -136,6 +141,15 @@ async function handleSend(overrideQuestion?: string) {
                     <Send size={16} className="translate-x-0.5" />
                 </button>
             </div>
+
+            {/* Scroll hint */}
+{messages.length === 0 && (
+  <div className="flex flex-col items-center gap-1 mt-2 animate-bounce pt-20">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 dark:text-gray-600">
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  </div>
+)}
 
         </div>
     )
