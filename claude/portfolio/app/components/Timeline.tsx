@@ -39,30 +39,53 @@ function ThumbnailCard({ exp, onClick }: { exp: Experience; onClick: () => void 
 
 export default function Timeline() {
   const [selected, setSelected] = useState<Experience | null>(null)
-  const sorted = [...resumeData.experience].sort((a, b) => parseDate(b.date) - parseDate(a.date))
+  const [techOnly, setTechOnly] = useState(false)
+
+  const sorted = [...resumeData.experience]
+    .filter(exp => techOnly ? exp.technical : true)
+    .sort((a, b) => parseDate(b.date) - parseDate(a.date))
 
   return (
     <>
+      {/* Toggle 
+      <div className="flex justify-center mb-8">
+        <button
+          onClick={() => setTechOnly(prev => !prev)}
+          className={`flex items-center gap-2 text-sm px-4 py-2 rounded-full border transition-all font-medium ${
+            techOnly
+              ? "bg-gray-900 text-white border-gray-900 dark:bg-gray-100 dark:text-gray-900 dark:border-gray-100"
+              : "bg-white text-gray-600 border-gray-200 dark:bg-gray-900 dark:text-gray-400 dark:border-gray-700"
+          }`}
+        >
+         <span className={`w-2 h-2 rounded-full ${techOnly ? "bg-green-400" : "bg-gray-300 dark:bg-gray-600"}`} />
+          {techOnly ? "Technical only" : "All experience"} 
+        </button>
+      </div>
+        */}
       <div className="relative flex flex-col items-center">
-        <div className="absolute top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-700" />
+        <div className="absolute top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-700 hidden sm:block" />
 
         {sorted.map((exp, index) => {
           const isLeft = index % 2 === 0
           return (
-            <div key={index} className="relative w-full grid grid-cols-[1fr_auto_1fr] gap-x-6 mb-6">
-
-              <div className={`flex justify-end ${!isLeft ? "invisible" : ""}`}>
-                {isLeft && <ThumbnailCard exp={exp} onClick={() => setSelected(exp)} />}
+            <div key={exp.id} className="relative w-full mb-5 sm:mb-6">
+              <div className={`flex sm:hidden ${isLeft ? "justify-start" : "justify-end"}`}>
+                <ThumbnailCard exp={exp} onClick={() => setSelected(exp)} />
               </div>
 
-              <div className="flex items-center justify-center z-10">
-                <div className="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-500 border-2 border-white dark:border-gray-900 shadow" />
+              <div className="hidden sm:grid sm:grid-cols-[1fr_auto_1fr] sm:gap-x-6">
+                <div className={`flex justify-end ${!isLeft ? "invisible" : ""}`}>
+                  {isLeft && <ThumbnailCard exp={exp} onClick={() => setSelected(exp)} />}
+                </div>
+                <div className="flex items-center justify-center z-10">
+                  <div className={`w-3 h-3 rounded-full border-2 border-white dark:border-gray-900 shadow ${
+                    exp.technical ? "bg-green-400" : "bg-gray-400 dark:bg-gray-500"
+                  }`} />
+                </div>
+                <div className={`flex justify-start ${isLeft ? "invisible" : ""}`}>
+                  {!isLeft && <ThumbnailCard exp={exp} onClick={() => setSelected(exp)} />}
+                </div>
               </div>
-
-              <div className={`flex justify-start ${isLeft ? "invisible" : ""}`}>
-                {!isLeft && <ThumbnailCard exp={exp} onClick={() => setSelected(exp)} />}
-              </div>
-
             </div>
           )
         })}
