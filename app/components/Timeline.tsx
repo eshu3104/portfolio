@@ -20,17 +20,17 @@ function ThumbnailCard({ exp, onClick }: { exp: Experience; onClick: () => void 
   return (
     <div
       onClick={onClick}
-      className="cursor-pointer border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md hover:border-gray-300 transition-all max-w-xs w-full"
+      className="cursor-pointer border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 rounded-xl p-4 shadow-sm hover:shadow-md hover:border-gray-300 dark:hover:border-gray-500 transition-all max-w-xs w-full"
     >
-      <p className="font-semibold text-sm text-gray-900">{exp.title}</p>
-      <p className="text-xs text-gray-600">{exp.subtitle}</p>
-      <p className="text-xs text-gray-500 mt-1">{exp.date}</p>
+      <p className="font-semibold text-sm text-gray-900 dark:text-gray-100">{exp.title}</p>
+      <p className="text-xs text-gray-600 dark:text-gray-300">{exp.subtitle}</p>
+      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{exp.date}</p>
       <div className="flex flex-wrap gap-1 mt-2">
         {exp.tags.slice(0, 3).map((tag) => (
-          <span key={tag} className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">{tag}</span>
+          <span key={tag} className="bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-200 text-xs px-2 py-1 rounded-full">{tag}</span>
         ))}
         {exp.tags.length > 3 && (
-          <span className="text-xs text-gray-500 px-1 py-1">+{exp.tags.length - 3}</span>
+          <span className="text-xs text-gray-500 dark:text-gray-400 px-1 py-1">+{exp.tags.length - 3}</span>
         )}
       </div>
     </div>
@@ -44,7 +44,7 @@ export default function Timeline() {
   return (
     <>
       <div className="relative flex flex-col items-center">
-        <div className="absolute top-0 bottom-0 w-px bg-gray-200" />
+        <div className="absolute top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-700" />
 
         {sorted.map((exp, index) => {
           const isLeft = index % 2 === 0
@@ -56,7 +56,7 @@ export default function Timeline() {
               </div>
 
               <div className="flex items-center justify-center z-10">
-                <div className="w-3 h-3 rounded-full bg-gray-400 border-2 border-white shadow" />
+                <div className="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-500 border-2 border-white dark:border-gray-900 shadow" />
               </div>
 
               <div className={`flex justify-start ${isLeft ? "invisible" : ""}`}>
@@ -70,28 +70,28 @@ export default function Timeline() {
 
       {selected && (
         <div
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={() => setSelected(null)}
         >
           <div
-            className="bg-white rounded-2xl p-6 max-w-lg w-full max-h-[80vh] overflow-y-auto shadow-xl"
+            className="bg-white dark:bg-gray-900 rounded-2xl p-6 max-w-lg w-full max-h-[80vh] overflow-y-auto shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-4">
               <div>
-                <p className="font-semibold text-base text-gray-900">{selected.title}</p>
-                <p className="text-sm text-gray-600">{selected.subtitle}</p>
-                <p className="text-xs text-gray-500 mt-1">{selected.date} · {selected.location}</p>
+                <p className="font-semibold text-base text-gray-900 dark:text-gray-100">{selected.title}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{selected.subtitle}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{selected.date} · {selected.location}</p>
               </div>
-              <button onClick={() => setSelected(null)} className="text-gray-400 hover:text-gray-600 text-xl">✕</button>
+              <button onClick={() => setSelected(null)} className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-xl">✕</button>
             </div>
             <div className="flex flex-wrap gap-1 mb-4">
               {selected.tags.map((tag) => (
-                <span key={tag} className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">{tag}</span>
+                <span key={tag} className="bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-200 text-xs px-2 py-1 rounded-full">{tag}</span>
               ))}
             </div>
             {selected.highlights && (
-              <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
                 {selected.highlights.map((h, i) => <li key={i}>{h}</li>)}
               </ul>
             )}

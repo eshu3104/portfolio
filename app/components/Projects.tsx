@@ -30,8 +30,8 @@ export default function Projects() {
             }}
             className={`px-3 py-1 rounded-full text-sm font-medium border transition-colors ${
               activeFilter === f
-                ? "bg-gray-900 text-white border-gray-900"
-                : "bg-white text-gray-600 border-gray-200 hover:border-gray-300"
+                ? "bg-gray-900 text-white border-gray-900 dark:bg-gray-100 dark:text-gray-900 dark:border-gray-100"
+                : "bg-white text-gray-600 border-gray-200 hover:border-gray-300 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 dark:hover:border-gray-500"
             }`}
           >
             {f}
@@ -45,18 +45,18 @@ export default function Projects() {
             key={projects.id}
             type="button"
             onClick={() => setSelectedProject(projects)}
-            className="relative text-left border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition-all"
+            className="relative text-left border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gray-300 dark:hover:border-gray-500 transition-all"
           >
             {projects.url && (
-              <FiExternalLink size={14} className="absolute top-4 right-4 text-gray-400" />
+              <FiExternalLink size={14} className="absolute top-4 right-4 text-gray-400 dark:text-gray-500" />
             )}
-            <h3 className="font-semibold text-base text-gray-900 pr-5">{projects.title}</h3>
-            <p className="text-gray-600 text-sm">{projects.type.charAt(0).toUpperCase() + projects.type.slice(1)}</p>
-            <p className="text-gray-500 text-xs">{projects.date}</p>
-            <p className="text-gray-500 text-xs">{projects.event}</p>
+            <h3 className="font-semibold text-base text-gray-900 dark:text-gray-100 pr-5">{projects.title}</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">{projects.type.charAt(0).toUpperCase() + projects.type.slice(1)}</p>
+            <p className="text-gray-500 dark:text-gray-400 text-xs">{projects.date}</p>
+            <p className="text-gray-500 dark:text-gray-400 text-xs">{projects.event}</p>
             <div className="flex flex-wrap gap-2 mt-3">
               {projects.tags.map((tag) => (
-                <span key={tag} className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
+                <span key={tag} className="bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-200 text-xs px-2 py-1 rounded-full">
                   {tag}
                 </span>
               ))}
@@ -70,24 +70,24 @@ export default function Projects() {
 
       {selectedProject && (
         <div
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-white rounded-2xl p-6 max-w-lg w-full max-h-[80vh] overflow-y-auto shadow-xl"
+            className="bg-white dark:bg-gray-900 rounded-2xl p-6 max-w-lg w-full max-h-[80vh] overflow-y-auto shadow-xl"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-4">
               <div>
-                <p className="font-semibold text-base text-gray-900">{selectedProject.title}</p>
-                <p className="text-sm text-gray-600">{selectedProject.type.charAt(0).toUpperCase() + selectedProject.type.slice(1)}</p>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="font-semibold text-base text-gray-900 dark:text-gray-100">{selectedProject.title}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{selectedProject.type.charAt(0).toUpperCase() + selectedProject.type.slice(1)}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                   {selectedProject.date} · {selectedProject.event}
                 </p>
               </div>
               <button
                 onClick={() => setSelectedProject(null)}
-                className="text-gray-400 hover:text-gray-600 text-xl"
+                className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-xl"
                 type="button"
                 aria-label="Close"
               >
@@ -97,13 +97,13 @@ export default function Projects() {
 
             <div className="flex flex-wrap gap-2 mb-4">
               {selectedProject.tags.map((tag) => (
-                <span key={tag} className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
+                <span key={tag} className="bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-200 text-xs px-2 py-1 rounded-full">
                   {tag}
                 </span>
               ))}
             </div>
 
-            <p className="text-sm text-gray-600">{selectedProject.description}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">{selectedProject.description}</p>
 
             {selectedProject.award && (
               <p className="text-amber-600 text-xs font-medium mt-2">🏆 {selectedProject.award}</p>
@@ -114,7 +114,7 @@ export default function Projects() {
                 href={selectedProject.url}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-5 inline-flex items-center justify-center rounded-full border border-gray-900 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white transition-colors"
+                className="mt-5 inline-flex items-center justify-center rounded-full border border-gray-900 dark:border-gray-100 px-4 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-900 hover:text-white dark:hover:bg-gray-100 dark:hover:text-gray-900 transition-colors"
               >
                 View project
               </a>

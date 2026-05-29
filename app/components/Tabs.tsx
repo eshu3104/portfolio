@@ -25,27 +25,27 @@ export default function Tabs() {
 
     return (
         <section id="timeline" className="max-w-3xl mx-auto px-6 py-24">
-            <div className="flex gap-1 bg-gray-100 p-1 rounded-full w-fit mx-auto mb-8">
+            <div className="flex gap-1 bg-gray-100 dark:bg-gray-800 p-1 rounded-full w-fit mx-auto mb-8">
 
                 <button onClick={() => {
                     window.location.hash = "timeline"
                     setActiveTab("timeline")
                 }}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeTab === "timeline" ? "bg-gray-900 text-white" : "text-gray-600 hover:text-gray-900"}`}>Timeline</button>
+                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeTab === "timeline" ? "bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900" : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"}`}>Timeline</button>
 
 
                 <button onClick={() => {
                     window.location.hash = "projects"
                     setActiveTab("projects")
                 }}             
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeTab === "projects" ? "bg-gray-900 text-white" : "text-gray-600 hover:text-gray-900"}`}>Projects</button>
+                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeTab === "projects" ? "bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900" : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"}`}>Projects</button>
 
 
                 <button onClick={() => {
                     window.location.hash = "skills"
                     setActiveTab("skills")
                 }}             
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeTab === "skills" ? "bg-gray-900 text-white" : "text-gray-600 hover:text-gray-900"}`}>Skills</button>
+                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeTab === "skills" ? "bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900" : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"}`}>Skills</button>
             </div>
 
             {activeTab === "timeline" && <div><Timeline/></div>}
