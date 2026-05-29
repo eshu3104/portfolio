@@ -1,6 +1,8 @@
 "use client"
 import { Send } from "lucide-react"
 import { useState } from "react"
+import Image from "next/image"
+
 
 export default function Hero() {
 
@@ -64,7 +66,13 @@ async function handleSend(overrideQuestion?: string) {
             <h1 className="text-3xl font-semibold tracking-tight">Hi! My name is Eshu</h1>
 
             {/* 2. Avatar */}
-            <div className="rounded-full bg-gray-200 w-36 h-36 mt-8" />
+            <Image
+                src="/images/avatar.jpg"
+                alt="Eshu"
+                width={144}
+                height={144}
+                className="rounded-full object-cover w-36 h-36 mt-8"
+            />
 
             {/* 3. Large name below avatar */}
             <h2 className="text-5xl font-bold tracking-tight">Eshu</h2>

@@ -2,11 +2,9 @@
 import data from '../data/experiences.json' 
 import { ResumeData } from '../lib/types'
 import { useState } from "react"
-
-
+import { FiExternalLink } from "react-icons/fi"
 
 const resumeData = data as ResumeData
-
 
 export default function Projects() {
 
@@ -20,27 +18,26 @@ export default function Projects() {
   )
 
   return (
-
     <div className="flex flex-col gap-6">
 
-    <div className="flex gap-2 mb-6">
-  {filters.map((f) => (
-    <button
-      key={f}
-      onClick={() => {
-        setActiveFilter(f)
-        setSelectedProject(null)
-      }}
-      className={`px-3 py-1 rounded-full text-sm font-medium border transition-colors ${
-        activeFilter === f
-          ? "bg-gray-900 text-white border-gray-900"
-          : "bg-white text-gray-600 border-gray-200 hover:border-gray-300"
-      }`}
-    >
-      {f}
-    </button>
-  ))}
-</div>
+      <div className="flex gap-2 mb-6">
+        {filters.map((f) => (
+          <button
+            key={f}
+            onClick={() => {
+              setActiveFilter(f)
+              setSelectedProject(null)
+            }}
+            className={`px-3 py-1 rounded-full text-sm font-medium border transition-colors ${
+              activeFilter === f
+                ? "bg-gray-900 text-white border-gray-900"
+                : "bg-white text-gray-600 border-gray-200 hover:border-gray-300"
+            }`}
+          >
+            {f}
+          </button>
+        ))}
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map((projects) => (
@@ -48,16 +45,19 @@ export default function Projects() {
             key={projects.id}
             type="button"
             onClick={() => setSelectedProject(projects)}
-            className="text-left border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition-all"
+            className="relative text-left border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition-all"
           >
-            <h3 className="font-semibold text-base text-gray-900">{projects.title}</h3>
+            {projects.url && (
+              <FiExternalLink size={14} className="absolute top-4 right-4 text-gray-400" />
+            )}
+            <h3 className="font-semibold text-base text-gray-900 pr-5">{projects.title}</h3>
             <p className="text-gray-600 text-sm">{projects.type.charAt(0).toUpperCase() + projects.type.slice(1)}</p>
             <p className="text-gray-500 text-xs">{projects.date}</p>
             <p className="text-gray-500 text-xs">{projects.event}</p>
             <div className="flex flex-wrap gap-2 mt-3">
-              {projects.tags.map((tags) => (
-                <span key={tags} className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
-                  {tags}
+              {projects.tags.map((tag) => (
+                <span key={tag} className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
+                  {tag}
                 </span>
               ))}
             </div>
@@ -125,5 +125,3 @@ export default function Projects() {
     </div>
   )
 }
-     
-
