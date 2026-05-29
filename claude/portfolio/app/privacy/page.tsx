@@ -75,8 +75,7 @@ const sections: Section[] = [
     title: "Who Is Responsible for Your Data",
     body: (
       <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
-        The data controller for eshu.earth is Eshu Priye Belgotra, an individual
-        based in Victoria, BC, Canada (originally from Mumbai, India). This site
+        The data controller for eshu.earth is Eshupriye Belgotra. This site
         is operated as a personal project and is not affiliated with any company
         or institution. For all privacy-related enquiries, contact{" "}
         <a
