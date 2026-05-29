@@ -42,6 +42,7 @@
   "experience": [
     {
       "id": "exp-rbc",
+      "technical": true,
       "title": "AI Mentee — Let's Solve It, Spring 2026 Cohort",
       "subtitle": "RBC Borealis",
       "date": "Mar 2026 – Present",
@@ -54,9 +55,11 @@
         "Engineered an ML pipeline to flag at-risk youth navigating chronic illness by training PyTorch models on 3+ years of longitudinal engagement data, enabling earlier clinical intervention.",
         "Designed an analytics dashboard serving 4+ clinical and program teams by visualizing retention curves, engagement trends, and disengagement risk flags using Python, Matplotlib, and GA4."
       ]
+      
     },
     {
       "id": "exp-islandhealth",
+      "technical": true,
       "title": "Clinical Application Analyst",
       "subtitle": "Island Health (Co-op)",
       "date": "Sep 2024 – Apr 2025",
@@ -76,6 +79,7 @@
     },
     {
       "id": "exp-ta",
+      "technical": false,
       "title": "Teaching Assistant",
       "subtitle": "UVic ECS Career & Co-Op Department",
       "date": "Sep 2025 – Dec 2025",
@@ -89,6 +93,7 @@
     },
     {
       "id": "exp-cl",
+      "technical": false,
       "title": "Community Leader",
       "subtitle": "UVic Residence Services",
       "date": "Aug 2023 – Present",
@@ -103,6 +108,7 @@
     },
     {
       "id": "exp-toi",
+      "technical": false,
       "title": "Star Correspondent",
       "subtitle": "Times of India, Student Edition",
       "date": "Feb 2019 – May 2022",
@@ -115,6 +121,7 @@
     },
     {
       "id": "exp-access",
+      "technical": false,
       "title": "Presentation Developer Intern",
       "subtitle": "Access Livelihoods Consulting",
       "date": "Apr 2021 – May 2021",
@@ -127,6 +134,7 @@
     },
     {
       "id": "exp-isro",
+      "technical": false,
       "title": "Expo Presenter",
       "subtitle": "ISRO — Indian Space Research Organization",
       "date": "Nov 2019",
@@ -139,6 +147,7 @@
     },
     {
       "id": "exp-iitb",
+      "technical": false,
       "title": "Solar Student Ambassador",
       "subtitle": "Indian Institute of Technology, Bombay",
       "date": "Sep 2019",

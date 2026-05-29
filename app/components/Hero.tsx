@@ -60,10 +60,10 @@ async function handleSend(overrideQuestion?: string) {
     }
 
     return (
-        <div className="min-h-screen flex flex-col items-center pt-32 gap-6" id="home">
+        <div className="min-h-screen flex flex-col items-center pt-16 sm:pt-24 lg:pt-32 gap-4 sm:gap-6" id="home">
 
             {/* 1. Name Heading */}
-            <h1 className="text-3xl font-semibold tracking-tight">Hi! My name is Eshu</h1>
+            <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">Hi! My name is Eshu</h1>
 
             <p className="text-sm text-gray-500 dark:text-gray-400 italic">
                 Say hi to my digital twin 👾
@@ -75,29 +75,29 @@ async function handleSend(overrideQuestion?: string) {
                 alt="Eshu"
                 width={144}
                 height={144}
-                className="rounded-full object-cover w-36 h-36 mt-2"
+                className="rounded-full object-cover w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 mt-2"
             />
 
             {/* 3. Large name below avatar */}
             {messages.length === 0 && (
-            <h2 className="text-5xl font-bold tracking-tight">Eshu</h2> )}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">Eshu</h2> )}
 
             {/* 4. Suggestion Chips */}
             {messages.length === 0 && (
-            <div className="flex flex-wrap justify-center gap-3 mt-2">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-2">
                 <button
                     onClick={() => handleSend("What's his tech stack?")}
-                    className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 px-5 py-2.5 rounded-full transition-colors font-medium cursor-pointer">
+                    className="text-xs sm:text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full transition-colors font-medium cursor-pointer">
                     What's his tech stack?
                 </button>
                 <button
                     onClick={() => handleSend("Tell me about his hackathon projects")}
-                    className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 px-5 py-2.5 rounded-full transition-colors font-medium cursor-pointer">
+                    className="text-xs sm:text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full transition-colors font-medium cursor-pointer">
                     See hackathon projects
                 </button>
                 <button
                     onClick={() => handleSend("Is he open to co-ops?")}
-                    className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 px-5 py-2.5 rounded-full transition-colors font-medium cursor-pointer">
+                    className="text-xs sm:text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full transition-colors font-medium cursor-pointer">
                     Is he open to co-ops?
                 </button>
             </div>
@@ -130,13 +130,13 @@ async function handleSend(overrideQuestion?: string) {
                     value={input}
                     onChange={e => setInput(e.target.value)}
                     onKeyDown={e => e.key === 'Enter' && handleSend()}
-                    className="flex-1 bg-gray-100 border border-gray-200 placeholder-gray-400 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:placeholder-gray-500 dark:text-gray-100 rounded-full px-6 py-3.5 text-sm outline-none disabled:cursor-not-allowed"
+                    className="flex-1 bg-gray-100 border border-gray-200 placeholder-gray-400 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:placeholder-gray-500 dark:text-gray-100 rounded-full px-4 py-3 sm:px-6 sm:py-3.5 text-sm outline-none disabled:cursor-not-allowed"
                     disabled={loading}
                 />
                 <button
                     onClick={() => handleSend()}
                     disabled={loading || !input.trim()}
-                    className="bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 w-12 h-12 rounded-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-opacity shrink-0"
+                    className="bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-opacity shrink-0"
                 >
                     <Send size={16} className="translate-x-0.5" />
                 </button>
@@ -144,7 +144,7 @@ async function handleSend(overrideQuestion?: string) {
 
             {/* Scroll hint */}
 {messages.length === 0 && (
-  <div className="flex flex-col items-center gap-1 mt-2 animate-bounce pt-20">
+    <div className="flex flex-col items-center gap-1 mt-2 animate-bounce pt-12 sm:pt-20">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 dark:text-gray-600">
       <path d="M6 9l6 6 6-6" />
     </svg>

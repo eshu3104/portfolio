@@ -15,6 +15,7 @@ export interface Experience {
   date: string;
   location: string;
   type: "work" | "research" | "volunteer";
+  technical: boolean;
   tags: string[];
   highlights: string[];
 }
@@ -40,11 +41,37 @@ export interface Research {
   description: string;
 }
 
+export interface Volunteering {
+  id: string;
+  role: string;
+  organization: string;
+  date: string;
+  location?: string;
+  highlights: string[];
+}
+
+export interface Award {
+  id: string;
+  name: string;
+  issuer: string;
+  date: string;
+}
+
+export interface Certification {
+  name: string;
+  issuer: string;
+  issued: string;
+  expires?: string;
+}
+
 export interface ResumeData {
   education: Education[];
   experience: Experience[];
   projects: Project[];
   research: Research[];
+  volunteering: Volunteering[];
+  awards: Award[];
+  certifications: Certification[];
   skills: {
     languages: string[];
     webAndFrameworks: string[];

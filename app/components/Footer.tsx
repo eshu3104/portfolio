@@ -6,10 +6,29 @@ export default function Footer() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [message, setMessage] = useState("")
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
 
-    function handleSubmit(name: string, email: string, message: string) {
-        console.log(name, email, message)
-        return email
+    async function handleSubmit() {
+        if (!name || !email || !message) return
+
+        setStatus("loading")
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, message }),
+            })
+
+            if (!res.ok) throw new Error("Failed")
+
+            setStatus("success")
+            setName("")
+            setEmail("")
+            setMessage("")
+        } catch {
+            setStatus("error")
+        }
     }
 
     return (
@@ -30,7 +49,8 @@ export default function Footer() {
                                 placeholder="Your name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
-                                className="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600 focus:border-gray-300 dark:focus:border-gray-600"
+                                disabled={status === "loading"}
+                                className="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600 focus:border-gray-300 dark:focus:border-gray-600 disabled:opacity-50"
                             />
                         </div>
 
@@ -41,7 +61,8 @@ export default function Footer() {
                                 placeholder="your@email.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600 focus:border-gray-300 dark:focus:border-gray-600"
+                                disabled={status === "loading"}
+                                className="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600 focus:border-gray-300 dark:focus:border-gray-600 disabled:opacity-50"
                             />
                         </div>
 
@@ -52,16 +73,30 @@ export default function Footer() {
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
                                 rows={5}
-                                className="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600 focus:border-gray-300 dark:focus:border-gray-600 resize-none"
+                                disabled={status === "loading"}
+                                className="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600 focus:border-gray-300 dark:focus:border-gray-600 resize-none disabled:opacity-50"
                             />
                         </div>
 
+                        {/* Status messages */}
+                        {status === "success" && (
+                            <p className="text-sm text-green-600 dark:text-green-400">
+                                Message sent! I'll get back to you soon.
+                            </p>
+                        )}
+                        {status === "error" && (
+                            <p className="text-sm text-red-500 dark:text-red-400">
+                                Something went wrong. Please try again.
+                            </p>
+                        )}
+
                         <button
-                            onClick={() => handleSubmit(name, email, message)}
-                            className="w-full bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-sm py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                            onClick={handleSubmit}
+                            disabled={status === "loading" || !name || !email || !message}
+                            className="w-full bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-sm py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             <Send size={15} />
-                            Send Message
+                            {status === "loading" ? "Sending..." : "Send Message"}
                         </button>
                     </div>
 
@@ -76,8 +111,9 @@ export default function Footer() {
                         <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                             I'm always interested in hearing about new opportunities and collaborations. Feel free to reach out if you'd like to connect!
                         </p>
-
+                        
                         <a
+                        
                             href="/Eshupriye_Belgotra_Resume.pdf"
                             download="Eshupriye_Belgotra_Resume.pdf"
                             className="w-full border border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 text-sm py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-gray-900 hover:text-white dark:hover:bg-gray-100 dark:hover:text-gray-900 transition-colors"
