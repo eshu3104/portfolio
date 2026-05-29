@@ -82,17 +82,17 @@ async function handleSend(overrideQuestion?: string) {
             <div className="flex flex-wrap justify-center gap-3 mt-2">
                 <button
                     onClick={() => handleSend("What's his tech stack?")}
-                    className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2.5 rounded-full transition-colors font-medium cursor-pointer">
+                    className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 px-5 py-2.5 rounded-full transition-colors font-medium cursor-pointer">
                     What's his tech stack?
                 </button>
                 <button
                     onClick={() => handleSend("Tell me about his hackathon projects")}
-                    className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2.5 rounded-full transition-colors font-medium cursor-pointer">
+                    className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 px-5 py-2.5 rounded-full transition-colors font-medium cursor-pointer">
                     See hackathon projects
                 </button>
                 <button
                     onClick={() => handleSend("Is he open to co-ops?")}
-                    className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2.5 rounded-full transition-colors font-medium cursor-pointer">
+                    className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 px-5 py-2.5 rounded-full transition-colors font-medium cursor-pointer">
                     Is he open to co-ops?
                 </button>
             </div>
@@ -105,10 +105,10 @@ async function handleSend(overrideQuestion?: string) {
                         <div
                             key={i}
                             className={`px-4 py-3 rounded-2xl text-sm max-w-[80%] ${
-                                msg.role === 'user'
-                                    ? 'bg-gray-900 text-white self-end rounded-br-sm'
-                                    : 'bg-gray-100 text-gray-800 self-start rounded-bl-sm'
-                            }`}
+                                    msg.role === 'user'
+                                        ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 self-end rounded-br-sm'
+                                        : 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200 self-start rounded-bl-sm'
+                                }`}
                         >
                             {msg.role === 'assistant' && msg.content === '' ? 'Thinking...' : msg.content}
                         </div>
@@ -125,13 +125,13 @@ async function handleSend(overrideQuestion?: string) {
                     value={input}
                     onChange={e => setInput(e.target.value)}
                     onKeyDown={e => e.key === 'Enter' && handleSend()}
-                    className="flex-1 bg-gray-100 border border-gray-200 placeholder-gray-400 rounded-full px-6 py-3.5 text-sm outline-none disabled:cursor-not-allowed"
+                    className="flex-1 bg-gray-100 border border-gray-200 placeholder-gray-400 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:placeholder-gray-500 dark:text-gray-100 rounded-full px-6 py-3.5 text-sm outline-none disabled:cursor-not-allowed"
                     disabled={loading}
                 />
                 <button
                     onClick={() => handleSend()}
                     disabled={loading || !input.trim()}
-                    className="bg-gray-900 text-white w-12 h-12 rounded-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-opacity shrink-0"
+                    className="bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 w-12 h-12 rounded-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-opacity shrink-0"
                 >
                     <Send size={16} className="translate-x-0.5" />
                 </button>
