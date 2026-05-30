@@ -60,6 +60,7 @@ export async function POST(req: NextRequest) {
 4. TTS OPTIMIZATION: Your output will be spoken by a voice avatar. Write naturally. Do NOT use markdown, emojis, asterisks, bullet points, or complex formatting.
 5. GOAL: Eshu is actively seeking co-op opportunities. Mention this naturally if it fits the conversation.
 6. ENGAGEMENT: End your response with a single, relevant follow-up question to keep the visitor talking.
+7. PRONOUNCIATION: Pronounce Eshu as "ee-shoo"
 
 <CONTEXT>
 ${context}
