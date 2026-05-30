@@ -9,7 +9,7 @@ const ratelimit = new Ratelimit({
   limiter: Ratelimit.slidingWindow(10, "60 s"),
 })
 
-const VOICE = "cedar" // alloy | echo | fable | onyx | nova | shimmer
+const VOICE = "onyx" // alloy | echo | fable | onyx | nova | shimmer
 
 export async function POST(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for") ?? "anonymous"
