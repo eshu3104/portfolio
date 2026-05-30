@@ -154,7 +154,11 @@ export default function Footer() {
             >
                 <p className="text-center text-sm text-gray-500 dark:text-gray-400 py-6">
                     © 2026 Eshu. All rights reserved.
+                    <a href="/privacy" className="underline underline-offset-2 hover:text-gray-600 dark:hover:text-gray-300 transition-colors pl-5">
+        Privacy Policy
+    </a>
                 </p>
+                
             </motion.div>
         </footer>
     )
