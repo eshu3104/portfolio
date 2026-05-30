@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "A full and transparent account of how eshu.earth collects, processes, stores, and protects your personal data.",
 }
 
-const LAST_UPDATED = "30 May 2026"
+const LAST_UPDATED = "31 May 2026"
 const CONTACT_EMAIL = "contact@eshu.earth"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -53,6 +53,9 @@ const sections: Section[] = [
           <strong>IP address, question, and the AI's response</strong> are logged
           to Supabase and deleted after 30 days. Your IP is also used for
           rate-limiting via Upstash Redis, where it expires after 60 seconds.
+          The AI's response is also converted to synthesised speech via OpenAI's
+          TTS API and played through your browser —{" "}
+          <strong>no audio is recorded from your device</strong>.
           Nothing is sold. No cookies. No ads. No trackers.
         </p>
         <p className="mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
@@ -118,6 +121,13 @@ const sections: Section[] = [
         "Supabase logs table (30-day retention)",
       ],
       [
+        "AI response text (for TTS)",
+        "Every AI chat message sent",
+        "Converted to synthesised speech via OpenAI TTS API and played in-browser. Not stored separately.",
+        "Legitimate interests (Art. 6(1)(f) GDPR)",
+        "Transmitted to OpenAI transiently — not written to Supabase or any database on this site",
+      ],
+      [
         "Name, email address, free-text message",
         "Contact form submission only",
         "To respond to your enquiry",
@@ -160,6 +170,11 @@ const sections: Section[] = [
           "No advertising networks or retargeting pixels are present. Your data is never used for advertising.",
       },
       {
+        label: "Audio input",
+        detail:
+          "This site never accesses your microphone. Audio is output only — the AI's responses are played through your speakers or headphones. No audio is recorded or captured from your device.",
+      },
+      {
         label: "Sensitive personal data",
         detail:
           "This site never asks for or processes special-category data (health, biometric, racial origin, political opinion, religion, sexual orientation, etc.).",
@@ -183,9 +198,9 @@ const sections: Section[] = [
           "Each key is a hashed representation of your IP address. Keys have a TTL equal to the sliding window (60 seconds) and are automatically evicted by Redis after that window closes. No IP data persists in Redis beyond 60 seconds.",
       },
       {
-        label: "OpenAI API inputs and outputs",
+        label: "OpenAI API inputs and outputs (chat and TTS)",
         detail:
-          "Your messages are transmitted to OpenAI's API (GPT-4o mini for chat, text-embedding-3-small for semantic search). Per OpenAI's API data usage policy, API inputs and outputs may be retained by OpenAI for up to 30 days for abuse monitoring, after which they are deleted. OpenAI does not use API data to train its models by default. See openai.com/policies/api-data-usage-policies.",
+          "Your messages are transmitted to OpenAI's API for chat completions, embeddings, and text-to-speech conversion. Per OpenAI's API data usage policy, API inputs and outputs may be retained by OpenAI for up to 30 days for abuse monitoring, after which they are deleted. OpenAI does not use API data to train its models by default. See openai.com/policies/api-data-usage-policies.",
       },
       {
         label: "Vercel infrastructure logs",
@@ -221,9 +236,9 @@ const sections: Section[] = [
           "IP addresses are written as rate-limit keys to an Upstash Redis instance with a 60-second TTL. Upstash is GDPR-compliant and does not use your data for any purpose other than serving the Redis API. Privacy policy: upstash.com/privacy",
       },
       {
-        label: "OpenAI (AI responses and embeddings)",
+        label: "OpenAI (AI responses, embeddings, and text-to-speech)",
         detail:
-          "Your chat questions are sent to OpenAI's API to (a) generate a vector embedding for semantic search, and (b) generate a natural language response via GPT-4o mini. OpenAI is a US-based processor. Data transfers from the EEA to the US are covered by OpenAI's Standard Contractual Clauses. Privacy policy: openai.com/policies/privacy-policy",
+          "Your chat questions are sent to OpenAI's API to (a) generate a vector embedding for semantic search, (b) generate a natural language response via GPT-4o mini, and (c) convert that response to synthesised speech via OpenAI's TTS API (tts-1, voice: onyx). No audio is recorded from your device. OpenAI is a US-based processor. Data transfers from the EEA to the US are covered by OpenAI's Standard Contractual Clauses. Privacy policy: openai.com/policies/privacy-policy",
       },
       {
         label: "Resend (transactional email)",
