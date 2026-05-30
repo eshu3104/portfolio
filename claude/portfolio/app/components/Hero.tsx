@@ -1,8 +1,8 @@
 "use client"
 import { Send } from "lucide-react"
-import { useState, useEffect } from "react"
-import Image from "next/image"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { motion, AnimatePresence, Transition } from "framer-motion"
+import TalkingHead from "./TalkingHead"
 
 const TYPEWRITER_LINES = [
     "AI/Data + Full Stack + whatever's trending 🔥",
@@ -61,51 +61,214 @@ function Typewriter() {
     )
 }
 
-export default function Hero() {
+// ─── RMS amplitude from a WebAudio time-domain buffer ────────────────────────
+function getRMSAmplitude(data: Uint8Array<ArrayBuffer>): number {
+    let sum = 0
+    for (let i = 0; i < data.length; i++) {
+        const v = (data[i] - 128) / 128
+        sum += v * v
+    }
+    return Math.min(Math.sqrt(sum / data.length), 1.0)
+}
 
+// ─── Decode raw PCM (Int16, 24kHz mono) into a Web Audio AudioBuffer ─────────
+function decodePCM(ctx: AudioContext, arrayBuffer: ArrayBuffer): AudioBuffer {
+    const pcm = new Int16Array(arrayBuffer)
+    const audioBuffer = ctx.createBuffer(1, pcm.length, 24000)
+    const channel = audioBuffer.getChannelData(0)
+    for (let i = 0; i < pcm.length; i++) {
+        channel[i] = pcm[i] / 32768
+    }
+    return audioBuffer
+}
+
+export default function Hero() {
     const [input, setInput] = useState("")
     const [loading, setLoading] = useState(false)
-    const [messages, setMessages] = useState<{role: string, content: string}[]>([])
+    const [messages, setMessages] = useState<{ role: string; content: string }[]>([])
+    const [amplitude, setAmplitude] = useState(0)
 
+    // WebAudio refs
+    const audioCtxRef  = useRef<AudioContext | null>(null)
+    const analyserRef  = useRef<AnalyserNode | null>(null)
+    const rafRef       = useRef<number | null>(null)
+    const dataArrayRef = useRef<Uint8Array<ArrayBuffer> | null>(null)
+
+    // Audio playback queue
+    const audioQueueRef = useRef<AudioBuffer[]>([])
+    const isPlayingRef  = useRef(false)
+
+    // TTS fetch queue — ensures chunks are fetched and played in order
+    const fetchQueueRef  = useRef<string[]>([])
+    const isFetchingRef  = useRef(false)
+
+    // ── Ensure AudioContext exists (must be created after a user gesture) ──
+    const ensureAudioCtx = useCallback(() => {
+        if (audioCtxRef.current) return
+        const ctx = new AudioContext()
+        const analyser = ctx.createAnalyser()
+        analyser.fftSize = 256
+        analyser.connect(ctx.destination)
+        audioCtxRef.current = ctx
+        analyserRef.current = analyser
+        dataArrayRef.current = new Uint8Array(analyser.frequencyBinCount) as Uint8Array<ArrayBuffer>
+    }, [])
+
+    // ── Read amplitude every animation frame while audio is playing ───────
+    const startAmplitudeLoop = useCallback(() => {
+        const loop = () => {
+            const analyser = analyserRef.current
+            const data = dataArrayRef.current
+            if (analyser && data) {
+                analyser.getByteTimeDomainData(data)
+                setAmplitude(getRMSAmplitude(data))
+            }
+            rafRef.current = requestAnimationFrame(loop)
+        }
+        rafRef.current = requestAnimationFrame(loop)
+    }, [])
+
+    const stopAmplitudeLoop = useCallback(() => {
+        if (rafRef.current !== null) {
+            cancelAnimationFrame(rafRef.current)
+            rafRef.current = null
+        }
+        setAmplitude(0)
+    }, [])
+
+    // ── Play next buffer in the audio queue ───────────────────────────────
+    const playNextInQueue = useCallback(() => {
+        const ctx = audioCtxRef.current
+        const analyser = analyserRef.current
+        if (!ctx || !analyser || audioQueueRef.current.length === 0) {
+            isPlayingRef.current = false
+            stopAmplitudeLoop()
+            return
+        }
+
+        isPlayingRef.current = true
+        const audioBuffer = audioQueueRef.current.shift()!
+        const source = ctx.createBufferSource()
+        source.buffer = audioBuffer
+        source.connect(analyser)
+        startAmplitudeLoop()
+        source.onended = () => playNextInQueue()
+        source.start()
+    }, [startAmplitudeLoop, stopAmplitudeLoop])
+
+    // ── Drain fetch queue sequentially — one request in-flight at a time ──
+    const drainFetchQueue = useCallback(async () => {
+        if (isFetchingRef.current) return
+        const ctx = audioCtxRef.current
+        const analyser = analyserRef.current
+        if (!ctx || !analyser) return
+
+        while (fetchQueueRef.current.length > 0) {
+            isFetchingRef.current = true
+            const text = fetchQueueRef.current.shift()!
+
+            try {
+                await ctx.resume()
+                const res = await fetch("/api/tts", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ text }),
+                })
+
+                if (res.ok) {
+                    const arrayBuffer = await res.arrayBuffer()
+                    const audioBuffer = decodePCM(ctx, arrayBuffer)
+                    audioQueueRef.current.push(audioBuffer)
+                    if (!isPlayingRef.current) playNextInQueue()
+                }
+            } catch (err) {
+                console.error("TTS error:", err)
+            }
+
+            isFetchingRef.current = false
+        }
+    }, [playNextInQueue])
+
+    // ── Enqueue text for TTS — never fetches in parallel ─────────────────
+    const playTTS = useCallback((text: string) => {
+        fetchQueueRef.current.push(text)
+        drainFetchQueue()
+    }, [drainFetchQueue])
+
+    // ── Stop all audio immediately and flush queues ───────────────────────────
+const stopAudio = useCallback(() => {
+    fetchQueueRef.current = []
+    audioQueueRef.current = []
+    isFetchingRef.current = false
+    isPlayingRef.current = false
+    stopAmplitudeLoop()
+}, [stopAmplitudeLoop])
+
+    // ── Main send handler ─────────────────────────────────────────────────
     async function handleSend(overrideQuestion?: string) {
         const question = overrideQuestion ?? input
+        if (!question.trim()) return
+        
+        stopAudio()          // ← add this line
+        ensureAudioCtx()
+
         setMessages(prev => [
             ...prev,
-            { role: 'user', content: question },
-            { role: 'assistant', content: '' }
+            { role: "user", content: question },
+            { role: "assistant", content: "" },
         ])
         setLoading(true)
-        setInput('')
+        setInput("")
 
-        const res = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ question: question })
+        const res = await fetch("/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ question }),
         })
 
         if (!res.ok) {
             const errorText = await res.text()
             setMessages(prev => {
                 const updated = [...prev]
-                updated[updated.length - 1] = { role: 'assistant', content: errorText }
+                updated[updated.length - 1] = { role: "assistant", content: errorText }
                 return updated
             })
             setLoading(false)
             return
         }
 
+        // Stream chat response — fire TTS per sentence or every ~10 words
         const reader = res.body!.getReader()
         const decoder = new TextDecoder()
+        let ttsBuffer = ""
 
         while (true) {
             const { done, value } = await reader.read()
-            if (done) break
+            if (done) {
+                if (ttsBuffer.trim()) playTTS(ttsBuffer.trim())
+                break
+            }
+
             const text = decoder.decode(value, { stream: true })
+            ttsBuffer += text
+
+            const sentenceEnd = ttsBuffer.search(/[.!?]\s/)
+            const wordCount = ttsBuffer.trim().split(/\s+/).length
+
+            if (sentenceEnd !== -1 || wordCount >= 10) {
+                const cutAt = sentenceEnd !== -1
+                    ? sentenceEnd + 1
+                    : ttsBuffer.lastIndexOf(" ")
+                const chunk = ttsBuffer.slice(0, cutAt).trim()
+                ttsBuffer = ttsBuffer.slice(cutAt).trimStart()
+                if (chunk) playTTS(chunk)
+            }
+
             setMessages(prev => {
                 const updated = [...prev]
                 updated[updated.length - 1] = {
                     ...updated[updated.length - 1],
-                    content: updated[updated.length - 1].content + text
+                    content: updated[updated.length - 1].content + text,
                 }
                 return updated
             })
@@ -114,14 +277,22 @@ export default function Hero() {
         setLoading(false)
     }
 
+    // ── Cleanup on unmount ────────────────────────────────────────────────
+    useEffect(() => {
+        return () => {
+            stopAmplitudeLoop()
+            audioCtxRef.current?.close()
+        }
+    }, [stopAmplitudeLoop])
+
     return (
         <div className="relative min-h-screen flex flex-col items-center pt-16 sm:pt-24 lg:pt-32 gap-4 sm:gap-6 overflow-hidden" id="home">
 
             {/* Noise texture overlay */}
             <div
-  className="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
-  style={{ backgroundImage: "url('/noise.svg')", backgroundRepeat: "repeat" }}
-/>
+                className="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
+                style={{ backgroundImage: "url('/noise.svg')", backgroundRepeat: "repeat" }}
+            />
 
             {/* Radial gradient blob */}
             <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-300 h-200 z-0"
@@ -130,7 +301,10 @@ export default function Hero() {
                 }}
             />
 
-            {/* Content — sits above blob + noise */}
+            {/* Bottom fade to soften glow edge */}
+            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 sm:h-40 z-0 bg-linear-to-b from-transparent via-white/70 to-white dark:via-gray-950/70 dark:to-gray-950" />
+
+            {/* Content */}
             <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 w-full">
 
                 {/* 1. Name Heading */}
@@ -150,13 +324,10 @@ export default function Hero() {
                 </motion.div>
 
                 {/* 3. Avatar */}
-                <motion.div {...fadeUp(0.3)}>
-                    <Image
-                        src="/images/avatar.jpg"
-                        alt="Eshu"
-                        width={144}
-                        height={144}
-                        className="rounded-full object-cover w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 mt-2"
+                <motion.div {...fadeUp(0.3)} className="-mt-5 sm:-mt-7">
+                    <TalkingHead
+                        amplitude={amplitude}
+                        className="w-56 h-64 sm:w-64 sm:h-72"
                     />
                 </motion.div>
 
@@ -212,12 +383,12 @@ export default function Hero() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.25 }}
                                     className={`px-4 py-3 rounded-2xl text-sm max-w-[80%] ${
-                                        msg.role === 'user'
-                                            ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 self-end rounded-br-sm'
-                                            : 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200 self-start rounded-bl-sm'
+                                        msg.role === "user"
+                                            ? "bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 self-end rounded-br-sm"
+                                            : "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200 self-start rounded-bl-sm"
                                     }`}
                                 >
-                                    {msg.role === 'assistant' && msg.content === '' ? 'Thinking...' : msg.content}
+                                    {msg.role === "assistant" && msg.content === "" ? "Thinking..." : msg.content}
                                 </motion.div>
                             ))}
                         </motion.div>
@@ -234,7 +405,7 @@ export default function Hero() {
                         placeholder="Ask me anything..."
                         value={input}
                         onChange={e => setInput(e.target.value)}
-                        onKeyDown={e => e.key === 'Enter' && handleSend()}
+                        onKeyDown={e => e.key === "Enter" && handleSend()}
                         className="flex-1 bg-gray-100 border border-gray-200 placeholder-gray-400 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:placeholder-gray-500 dark:text-gray-100 rounded-full px-4 py-3 sm:px-6 sm:py-3.5 text-sm outline-none disabled:cursor-not-allowed"
                         disabled={loading}
                     />
@@ -245,25 +416,24 @@ export default function Hero() {
                     >
                         <Send size={16} className="translate-x-0.5" />
                     </button>
-                    
-                    
                 </motion.div>
+
                 {/* Privacy notice */}
-<motion.p
-    className="text-xs text-center text-gray-400 dark:text-gray-500 -mt-2"
-    {...fadeUp(0.7)}
->
-    Chats may be logged for security.{" "}
-    <a href="/privacy" className="underline underline-offset-2 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
-        Privacy Policy
-    </a>
-</motion.p>
+                <motion.p
+                    className="text-xs text-center text-gray-400 dark:text-gray-500 -mt-2"
+                    {...fadeUp(0.7)}
+                >
+                    Chats may be logged for security.{" "}
+                    <a href="/privacy" className="underline underline-offset-2 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                        Privacy Policy
+                    </a>
+                </motion.p>
 
                 {/* Scroll hint */}
                 <AnimatePresence>
                     {messages.length === 0 && (
                         <motion.div
-                            className="flex flex-col items-center gap-1 mt-2 animate-bounce pt-12 sm:pt-20"
+                            className="flex flex-col items-center gap-1 mt-0 animate-bounce pt-4 sm:pt-6"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}

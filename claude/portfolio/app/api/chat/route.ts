@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
         model: 'gpt-4o-mini',
         stream: true,
         messages: [
-            { role: 'system', content: `You are an assistant on Eshu's portfolio website. You ONLY answer questions about Eshu — his experience, projects, skills, and education. If asked anything unrelated (math, general knowledge, etc.), politely say you can only discuss Eshu. Always use the context below.\n\nContext:\n${context} If the context doesn't contain the answer, say "I don't have that information about Eshu" — never make anything up. Limit your answer to 5 sentences and ask for follow-up questions at the end of your statement.` },
+            { role: 'system', content: `You are an assistant on Eshu's portfolio website. You ONLY answer questions about Eshu — his experience, projects, skills, and education. If asked anything unrelated (math, general knowledge, etc.), politely say you can only discuss Eshu. Always use the context below.\n\nContext:\n${context} If the context doesn't contain the answer, say "I don't have that information about Eshu" — never make anything up. Limit your answer to 3 sentences and ask for follow-up questions at the end of your statement. Eshu is open for co-ops.` },
             { role: 'user', content: question },
         ],
     })
@@ -68,7 +68,8 @@ export async function POST(req: NextRequest) {
         await supabase.from('logs').insert({
             ip,
             question,
-            response: fullResponse
+            response: fullResponse,
+            tts: true
             })
     },
     })
@@ -79,4 +80,5 @@ export async function POST(req: NextRequest) {
 
     
 }
+
 
