@@ -6,7 +6,7 @@
     "location": "Victoria, BC",
     "linkedin": "https://linkedin.com/in/eshu-belgotra",
     "github": "https://github.com/eshu3104",
-    "website": null
+    "website": "https://www.eshu.earth"
   },
   "education": [
     {
@@ -77,8 +77,8 @@
         "Azure DevOps",
         "ServiceNow",
         "SharePoint",
-        "MS Access",
-        "Power Automate"
+        "Plumsail",
+        "MS Access"
       ],
       "highlights": [
         "Built multi-screen Clinical Governance Membership Management System in Power Apps, replacing manual spreadsheets and centralizing committee membership management for 5,000+ members across BC's healthcare system, with automated permission workflows, real-time roster edits, integrated PDF reports, and audit-ready compliance features",
@@ -147,7 +147,7 @@
       ]
     },
     {
-      "id": "exp-alc-intern",
+      "id": "exp-access-livelihoods",
       "technical": false,
       "title": "Presentation Developer Intern",
       "subtitle": "Access Livelihoods Consulting",
@@ -155,8 +155,8 @@
       "location": "Mumbai, India",
       "type": "Internship",
       "tags": [
+        "Presentations",
         "Data Visualization",
-        "Investor Relations",
         "Research"
       ],
       "highlights": [
@@ -164,16 +164,16 @@
       ]
     },
     {
-      "id": "exp-isro-expo",
+      "id": "exp-isro",
       "technical": false,
       "title": "Expo Presenter",
       "subtitle": "ISRO, Indian Space Research Organization",
       "date": "Nov 2019",
       "location": "Mumbai, India",
-      "type": "Event",
+      "type": "Volunteer",
       "tags": [
         "Science Communication",
-        "Public Speaking"
+        "Public Engagement"
       ],
       "highlights": [
         "Researched and communicated ISRO project information to students and parents from across Mumbai at a public space exposition, demonstrating strong science communication skills"
@@ -186,7 +186,7 @@
       "subtitle": "Indian Institute of Technology, Bombay",
       "date": "Sep 2019",
       "location": "Mumbai, India",
-      "type": "Event",
+      "type": "Volunteer",
       "tags": [
         "Clean Energy",
         "Education",
@@ -213,7 +213,6 @@
       "subtitle": "SEGAL Lab, University of Victoria",
       "date": "Oct 2024 – Dec 2024",
       "location": "Victoria, BC",
-      "supervisor": null,
       "description": "Supported software engineering research by assisting with general lab tasks and providing user feedback for ongoing research projects"
     }
   ],
@@ -247,7 +246,7 @@
       "id": "proj-precheckai",
       "title": "PreCheck.ai",
       "event": "nwHacks 2026",
-      "award": "Finalist: Best Use of Gemini API & Best Use of .tech",
+      "award": "Finalist: Best Use of Gemini API & Best Use of .tech — 600+ participants",
       "date": "Jan 2026",
       "url": "https://www.precheckai.tech",
       "type": "Hackathon",
@@ -261,9 +260,6 @@
         "RAG",
         "HistGradientBoosting"
       ],
-      "team": [
-        "600+ participants"
-      ],
       "description": "A 4-stage ML validation pipeline to cross-reference clinical documents against BC insurance policies and predict claim-denial probability.",
       "highlights": [
         "Architected a 4-stage ML validation pipeline (Gemini Vision OCR, RAG policy audit, HistGradientBoosting risk scoring, remediation dashboard) to cross-reference clinical documents against BC insurance policies and predict claim-denial probability, built among 600+ participants in 24 hours",
@@ -274,7 +270,6 @@
       "id": "proj-skynet",
       "title": "SkyNet Space Biology Knowledge Engine",
       "event": "NASA SpaceApps Hackathon 2025",
-      "award": null,
       "date": "Oct 2025",
       "url": "https://github.com/eshu3104/nasa-hackathon-2025",
       "type": "Hackathon",
@@ -282,12 +277,11 @@
         "Python",
         "Flask",
         "OpenAI",
-        "GPT-4o-mini",
-        "Semantic Search",
         "RAG",
+        "Semantic Search",
         "NLP"
       ],
-      "description": "AI semantic search platform processing 608 NASA publications using OpenAI embeddings and Python/Flask.",
+      "description": "AI semantic search platform processing 608 NASA publications using OpenAI embeddings.",
       "highlights": [
         "Built AI semantic search platform processing 608 NASA publications (11,460 semantic chunks) using OpenAI embeddings and Python/Flask, delivering role-based research insights for scientists, educators, and funding managers",
         "Implemented GPT-4o-mini document summarization, reducing literature review time by 60%; designed context-aware query interface with follow-up question logic for 3 distinct user personas"
@@ -297,7 +291,6 @@
       "id": "proj-votify",
       "title": "Votify",
       "event": "UVEC Hackathon 2025",
-      "award": null,
       "date": "Oct 2025",
       "url": "https://github.com/eshu3104/uvec-hackathon-2025",
       "type": "Hackathon",
@@ -307,7 +300,7 @@
         "Spotify Web API",
         "WebSockets"
       ],
-      "description": "Full-stack crowd-powered Spotify voting app with Kahoot-style lobby system and live voting.",
+      "description": "Full-stack crowd-powered Spotify voting app with Kahoot-style lobby system.",
       "highlights": [
         "Built full-stack crowd-powered Spotify voting app in under 7 hours using React, Flask, Spotify Web API, and WebSockets; Kahoot-style lobby system, live voting between AI-recommended tracks, and auto-queuing logic"
       ]
@@ -316,15 +309,12 @@
       "id": "proj-grantfinder",
       "title": "GrantFinder",
       "event": "INSPIRE Ideathon",
-      "award": null,
       "date": "Sep 2025",
-      "url": null,
       "type": "Hackathon",
       "tags": [
         "AI",
-        "Grant Discovery",
-        "NLP",
-        "System Architecture"
+        "System Architecture",
+        "Front-end"
       ],
       "description": "AI-powered grant discovery platform enabling personalized grant matching and draft proposal generation for non-profit organizations.",
       "highlights": [
@@ -353,7 +343,7 @@
       "id": "proj-deepracer",
       "title": "AWS DeepRacer",
       "event": "Reinforcement Learning Competition",
-      "award": "5th Place out of 100 competitors",
+      "award": "5th place out of 100 competitors",
       "date": "Nov 2024",
       "url": "https://github.com/eshu3104/AWSDeepracer",
       "type": "Competition",
@@ -362,7 +352,7 @@
         "Python",
         "AWS"
       ],
-      "description": "Engineered a reward function for an RL racing model achieving 5th place in a physical race.",
+      "description": "RL racing model with engineered reward function analyzing speed, steering, and track positioning.",
       "highlights": [
         "Engineered a reward function for an RL racing model analyzing speed, steering, and track positioning through 200+ training iterations; achieved 5th place out of 100 competitors in a physical race",
         "Attained a race time of 9.729 seconds on the re:Invent 2018 track, finishing within 2 seconds of the world record"
@@ -372,9 +362,7 @@
       "id": "proj-fairfind",
       "title": "FairFind",
       "event": "SENG 310: Human-Computer Interaction",
-      "award": null,
       "date": "Sep 2025 – Nov 2025",
-      "url": null,
       "type": "Academic",
       "tags": [
         "HCI",
@@ -384,7 +372,7 @@
         "Figma",
         "Usability Testing"
       ],
-      "description": "Full HCI research-to-prototype pipeline for a fairness-focused product discovery interface.",
+      "description": "Full HCI research-to-prototype pipeline for a marketplace application.",
       "highlights": [
         "Led a full HCI research-to-prototype pipeline: ethnographic research and surveys with 20+ participants, persona and journey mapping, low-fidelity sketches, HTML/CSS/JS medium-fidelity prototype, heuristic evaluation, and usability testing",
         "Identified 10+ usability issues across Nielsen's heuristics through iterative testing; refined design to achieve a mean satisfaction score of 4.17/5.0 with 100% task completion across all test participants"
@@ -394,21 +382,19 @@
       "id": "proj-residence-portal",
       "title": "UVic Residence Maintenance Portal Redesign",
       "event": "CSC 375: Systems Analysis",
-      "award": null,
       "date": "Sep 2025 – Nov 2025",
-      "url": null,
       "type": "Academic",
       "tags": [
         "UML",
         "BPMN",
         "Figma",
-        "Requirements Engineering",
-        "Systems Analysis"
+        "Systems Analysis",
+        "Requirements Engineering"
       ],
       "team": [
         "6-person team (G20 Software Solutions)"
       ],
-      "description": "Designed a unified web-based maintenance portal for 2,000+ residence students, replacing the fragmented StarRez system.",
+      "description": "Unified web-based maintenance portal design for 2,000+ residence students replacing the fragmented StarRez system.",
       "highlights": [
         "Led a 6-person consulting team (G20 Software Solutions) to design a unified web-based maintenance portal for 2,000+ residence students, replacing the fragmented StarRez system to improve request tracking and communication transparency",
         "Delivered full UML domain model, BPMN process models, functional/non-functional requirements, use cases, and Figma prototypes across 3 user roles (residents, staff, contractors), designed for WCAG 2.2 compliance and StarRez integration"
@@ -418,9 +404,7 @@
       "id": "proj-seng265",
       "title": "Web Crawler, Index-Search Tool, Priority Queue, Password Analysis Tool",
       "event": "SENG 265: Software Development Methods",
-      "award": null,
       "date": "Sep 2023 – Dec 2023",
-      "url": null,
       "type": "Academic",
       "tags": [
         "C",
@@ -428,7 +412,7 @@
         "Regex",
         "Bash"
       ],
-      "description": "Developed 4 software projects in C, Python, Regex, and Bash across the fall term.",
+      "description": "Four software projects developed across the fall term.",
       "highlights": [
         "Developed 4 software projects in C, Python, Regex, and Bash across the fall term"
       ]
@@ -436,8 +420,6 @@
     {
       "id": "proj-portfolio",
       "title": "Personal Portfolio Site",
-      "event": null,
-      "award": null,
       "date": "May 2026",
       "url": "https://www.eshu.earth",
       "type": "Personal",
@@ -452,46 +434,41 @@
         "OpenAI",
         "GitHub Actions",
         "RAG",
-        "TypeScript"
+        "TTS",
+        "VRM"
       ],
-      "description": "A personal portfolio site with RAG-powered chat, TTS, and a 3D VRM avatar.",
+      "description": "Personal portfolio with RAG-powered chat, TTS, and 3D VRM avatar lip sync.",
       "highlights": [
-        "Built a retrieval-augmented generation pipeline using OpenAI embeddings and Supabase RPC vector search, retrieving the top-5 most relevant chunks from resume and project data at a 0.2 cosine similarity threshold and feeding them as context to GPT-4o mini",
-        "Automated knowledge-base sync via a GitHub Actions workflow triggered on resume.tex commits — uses Claude to parse LaTeX into structured JSON, re-embeds with OpenAI text-embedding-3-small, and upserts to Supabase",
-        "Streamed chat completions token-by-token via the ReadableStream API, chunking output at sentence boundaries or every 10 words to pipeline TTS fetches before the full response completes",
-        "Built a low-latency TTS pipeline using OpenAI tts-1, switching from MP3 to raw PCM output (Int16, 24kHz mono) and manually constructing AudioBuffer objects to bypass the browser MP3 decoder entirely",
-        "Implemented a sequential fetch queue feeding a downstream playback queue, ensuring multi-chunk TTS audio plays in order without overlap regardless of network jitter",
-        "Drove real-time lip sync on a Three.js VRM avatar by reading RMS amplitude from a WebAudio AnalyserNode at 60fps and lerping VRM mouth blend shapes frame-by-frame",
-        "Optimised the VRM render loop by caching all bone references on load, removing per-frame getNormalizedBoneNode calls, achieving a stable 60fps on mid-range hardware",
-        "Enforced per-IP rate limiting across chat and TTS endpoints via Upstash Redis sliding windows (10 req / 60 s), logged all interactions to Supabase, and authored a GDPR-compliant privacy policy covering 5 jurisdictions",
+        "Built a retrieval-augmented generation pipeline using OpenAI embeddings and Supabase RPC vector search, retrieving the top-5 most relevant chunks from resume and project data at a 0.2 cosine similarity threshold and feeding them as context to GPT-4o mini, grounding every response in accurate personal data",
+        "Automated knowledge-base sync via a GitHub Actions workflow triggered on resume.tex commits — uses Claude to parse LaTeX into structured JSON, re-embeds with OpenAI text-embedding-3-small, and upserts to Supabase, keeping the chat current with zero manual steps",
+        "Streamed chat completions token-by-token via the ReadableStream API, chunking output at sentence boundaries or every 10 words to pipeline TTS fetches before the full response completes, minimising time-to-first-audio",
+        "Built a low-latency TTS pipeline using OpenAI tts-1, switching from MP3 to raw PCM output (Int16, 24kHz mono) and manually constructing AudioBuffer objects to bypass the browser MP3 decoder entirely, cutting per-chunk decode latency to near zero",
+        "Implemented a sequential fetch queue feeding a downstream playback queue, ensuring multi-chunk TTS audio plays in order without overlap regardless of network jitter between OpenAI TTS API responses",
+        "Drove real-time lip sync on a Three.js VRM avatar by reading RMS amplitude from a WebAudio AnalyserNode at 60fps and lerping VRM mouth blend shapes frame-by-frame, syncing amplitude into a React Three Fiber frame-loop ref to avoid stale closure bugs",
+        "Optimised the VRM render loop by caching all bone references on load, removing per-frame getNormalizedBoneNode calls, and calling vrm.update(delta) last to prevent bone rotation overwrites, achieving a stable 60fps on mid-range hardware",
+        "Enforced per-IP rate limiting across chat and TTS endpoints via Upstash Redis sliding windows (10 req / 60 s), logged all interactions to Supabase with IP, question, and response fields, and authored a GDPR-compliant privacy policy covering data collection, retention schedules, sub-processors, and user rights across 5 jurisdictions",
         "Shipped on Next.js 14, React 19, and Tailwind v4 with a 3-tab navigation system, hash-synced deep linking, a filterable project grid across 4 categories, and modal drill-downs for 15 projects"
       ]
     },
     {
-      "id": "proj-tooblue",
+      "id": "proj-discord-weather-bot",
       "title": "Discord Weather Bot (TooBlue)",
-      "event": null,
-      "award": null,
       "date": "May 2024 – Jun 2024",
-      "url": null,
       "type": "Personal",
       "tags": [
         "Node.js",
-        "Discord API",
+        "Discord",
         "OpenWeatherMap API"
       ],
-      "description": "A Discord bot displaying real-time weather data including temperature, humidity, pressure, visibility, and wind metrics.",
+      "description": "Discord bot displaying real-time weather data on demand.",
       "highlights": [
         "Built a Discord bot in Node.js integrating the OpenWeatherMap API to display real-time weather data including temperature, humidity, pressure, visibility, and wind metrics on demand"
       ]
     },
     {
-      "id": "proj-trading-card",
+      "id": "proj-trading-card-generator",
       "title": "YouTuber Trading Card Generator",
-      "event": null,
-      "award": null,
       "date": "May 2024",
-      "url": null,
       "type": "Personal",
       "tags": [
         "Python",
@@ -499,7 +476,7 @@
         "BeautifulSoup",
         "Pillow"
       ],
-      "description": "Python application generating trading cards from YouTube channel data.",
+      "description": "Python application that auto-generates YouTuber trading cards with channel stats.",
       "highlights": [
         "Developed a Python application integrating YouTube Data API and BeautifulSoup web scraping to auto-fetch channel stats, avatars, and quotes, then programmatically overlay data onto custom card templates via Pillow"
       ]
@@ -507,34 +484,28 @@
     {
       "id": "proj-bharat-app",
       "title": "Bharat App",
-      "event": null,
-      "award": null,
       "date": "Sep 2020",
-      "url": null,
       "type": "Personal",
       "tags": [
         "Swift",
         "iOS",
         "CS50x"
       ],
-      "description": "Educational iOS app in Swift visualizing data for India's 28 states and 8 union territories.",
+      "description": "Educational iOS app visualizing data for India's 28 states and 8 union territories.",
       "highlights": [
         "Built an educational iOS app in Swift visualizing data for India's 28 states and 8 union territories as a CS50x final project, delivered as a functional MVP within a one-week deadline"
       ]
     },
     {
-      "id": "proj-grading-interface",
+      "id": "proj-student-grading",
       "title": "Student Grading Interface",
-      "event": null,
-      "award": null,
       "date": "Mar 2019",
-      "url": null,
       "type": "Personal",
       "tags": [
         "Visual Basic",
         "MS Access"
       ],
-      "description": "Desktop grade management application enabling educators to input, store, and link student academic records.",
+      "description": "Desktop grade management application for educators.",
       "highlights": [
         "Developed a desktop grade management application in Visual Basic and MS Access enabling educators to input, store, and link student academic records"
       ]
@@ -542,16 +513,13 @@
     {
       "id": "proj-necronomicon",
       "title": "The Necronomicon (2D Platformer)",
-      "event": null,
-      "award": null,
       "date": "Feb 2019",
-      "url": null,
       "type": "Personal",
       "tags": [
         "Unreal Engine",
         "Game Development"
       ],
-      "description": "2D platformer created in Unreal Engine within a 48-hour sprint, securing 40+ downloads on itch.io.",
+      "description": "2D platformer built in Unreal Engine within a 48-hour sprint.",
       "highlights": [
         "Created a 2D platformer in Unreal Engine within a 48-hour sprint, securing 40+ downloads on itch.io through effective use of open-source assets"
       ]
@@ -652,7 +620,6 @@
       "role": "Department Head",
       "organization": "The Sports Conversation, Media & Podcasting",
       "date": "Apr 2020 – May 2022",
-      "location": null,
       "highlights": [
         "Led team creating social media content and managing podcast production, overseeing content strategy and coordination"
       ]
@@ -680,19 +647,19 @@
   ],
   "awards": [
     {
-      "id": "award-nwhacks-gemini",
+      "id": "award-nwhacks",
       "name": "nwHacks 2026 Finalist – Best Use of Google Gemini API & Best Use of .tech Domain",
       "issuer": "nwHacks",
       "date": "Jan 2026"
     },
     {
-      "id": "award-foodbridge-peoples-choice",
+      "id": "award-foodbridge",
       "name": "FoodBridge People's Choice Award",
       "issuer": "UVicHacks 2026",
       "date": "Jan 2026"
     },
     {
-      "id": "award-health-safety-5th",
+      "id": "award-health-safety",
       "name": "Health & Safety Checker 5th Place",
       "issuer": "Tenfold Cursor Hackathon",
       "date": "Sep 2025"
