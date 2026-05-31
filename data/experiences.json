@@ -1,0 +1,765 @@
+{
+  "name": "Eshupriye Belgotra",
+  "contact": {
+    "email": "eshubelgotra@uvic.ca",
+    "phone": "+1 (250) 986-7614",
+    "location": "Victoria, BC",
+    "linkedin": "https://linkedin.com/in/eshu-belgotra",
+    "github": "https://github.com/eshu3104",
+    "website": null
+  },
+  "education": [
+    {
+      "id": "edu-uvic",
+      "school": "University of Victoria",
+      "degree": "Bachelor of Science in Computer Science",
+      "date": "Jan 2023 – Apr 2028",
+      "location": "Victoria, BC",
+      "gpa": "7.38/9.0 (≈ 3.70/4.0)",
+      "coursework": [
+        "Algorithms & Data Structures",
+        "Object-Oriented Programming",
+        "Software Development Methods",
+        "Systems Analysis",
+        "Human-Computer Interaction",
+        "Functional Programming"
+      ]
+    },
+    {
+      "id": "edu-nes",
+      "school": "NES International School",
+      "degree": "International Baccalaureate Diploma, 40 Points",
+      "date": "Apr 2020 – May 2022",
+      "location": "Mumbai, India"
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp-rbc-borealis",
+      "technical": true,
+      "title": "RBC Borealis Let's Solve It",
+      "subtitle": "Spring 2026 Cohort",
+      "date": "Mar 2026 – May 2026",
+      "location": "Victoria, BC",
+      "type": "Program",
+      "tags": [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "UMAP",
+        "scikit-learn",
+        "PyTorch",
+        "Matplotlib",
+        "GA4",
+        "ML",
+        "Data Analysis"
+      ],
+      "highlights": [
+        "Conducted exploratory data analysis on 1,500+ longitudinal youth health engagement records spanning 3+ years in a team of 4 mentees alongside 2 senior AI researchers, surfacing disengagement signals across 20+ behavioural features using Python, Pandas, and NumPy",
+        "Reduced high-dimensional engagement data to 2D embeddings by implementing UMAP clustering in Python and scikit-learn, isolating 4+ distinct user cohorts to inform downstream model design",
+        "Engineered an ML pipeline to flag at-risk youth navigating chronic illness by training PyTorch models on 3+ years of longitudinal engagement data, enabling earlier clinical intervention",
+        "Designed an analytics dashboard serving 4+ clinical and program teams by visualizing retention curves, engagement trends, and disengagement risk flags using Python, Matplotlib, and GA4"
+      ]
+    },
+    {
+      "id": "exp-island-health",
+      "technical": true,
+      "title": "Clinical Application Analyst (Co-op)",
+      "subtitle": "Island Health",
+      "date": "Sep 2024 – Apr 2025",
+      "location": "Victoria, BC",
+      "type": "Co-op",
+      "tags": [
+        "Power Apps",
+        "SQL Server",
+        "PowerShell",
+        "SSIS",
+        "Azure DevOps",
+        "ServiceNow",
+        "SharePoint",
+        "MS Access",
+        "Power Automate"
+      ],
+      "highlights": [
+        "Built multi-screen Clinical Governance Membership Management System in Power Apps, replacing manual spreadsheets and centralizing committee membership management for 5,000+ members across BC's healthcare system, with automated permission workflows, real-time roster edits, integrated PDF reports, and audit-ready compliance features",
+        "Designed and implemented automated data pipelines querying 10,000+ patient records via SQL Server Management Studio, reducing manual data-entry time by 80% and improving accuracy across clinical applications",
+        "Migrated legacy mental health housing system from MS Access to SQL Server, developing data-loading scripts and correcting fiscal logic to support 2,000+ annual residential applications",
+        "Authored PowerShell automation scripts and SSIS pipelines for data migration and system maintenance, saving 10+ hours per week for the Custom Application Management team",
+        "Delivered 3 major production deployments via Azure DevOps and ServiceNow with zero critical incidents through end-to-end QA and comprehensive pre-release testing",
+        "Enhanced MAMDA Virtual Care Account System by resolving user-syncing, deactivation, and account-visibility bugs, and extending backend logic for new account types to improve data accuracy across virtual care platforms",
+        "Rebuilt mission-critical Device Services Tracker form using Plumsail/SharePoint, replacing unsupported legacy tooling with a standardized, accessible, and maintainable interface",
+        "Developed Solution Registry & Support Metadata Integration system capturing lifecycle metadata for internally built apps, enabling real-time status surfacing inside Power Apps and CMDB sync via SSIS pipelines"
+      ]
+    },
+    {
+      "id": "exp-ta-uvic",
+      "technical": false,
+      "title": "Teaching Assistant",
+      "subtitle": "UVic ECS Career & Co-Op Department",
+      "date": "Sep 2025 – Dec 2025",
+      "location": "Victoria, BC",
+      "type": "Part-time",
+      "tags": [
+        "Technical Writing",
+        "Feedback",
+        "Education"
+      ],
+      "highlights": [
+        "Evaluated 360+ professional documents (resumes, cover letters, portfolios) for 184 students across ENGR 130, ECS IPP, and ECS IPP Grad courses, delivering actionable, individualized feedback to improve career readiness",
+        "Identified recurring technical communication errors across cohorts and provided targeted guidance, measurably improving cohort-level document quality each term"
+      ]
+    },
+    {
+      "id": "exp-community-leader",
+      "technical": false,
+      "title": "Community Leader",
+      "subtitle": "University of Victoria, Residence Services",
+      "date": "Aug 2023 – Present",
+      "location": "Victoria, BC",
+      "type": "Part-time",
+      "tags": [
+        "Leadership",
+        "Crisis Response",
+        "Community Development",
+        "Peer Support"
+      ],
+      "highlights": [
+        "Serve as primary peer-support contact for 200+ residents per term, facilitating academic and social transition through 13+ solo/team programs per semester across multiple terms",
+        "Managed all critical incidents, crisis response, and conflict resolution as first point of contact across in-night duty rotations, maintaining a 100% incident resolution rate while ensuring resident safety and wellbeing",
+        "Provide one-on-one support with referrals to counselling, health, and academic services; collaborate with Neighbourhood Manager on community development programming"
+      ]
+    },
+    {
+      "id": "exp-toi",
+      "technical": false,
+      "title": "Star Correspondent",
+      "subtitle": "Times of India, Student Edition",
+      "date": "Feb 2019 – May 2022",
+      "location": "Mumbai, India",
+      "type": "Part-time",
+      "tags": [
+        "Journalism",
+        "Writing",
+        "Research"
+      ],
+      "highlights": [
+        "Authored dozens of research-backed articles on current affairs and technology, trained by senior TOI journalists, for a national student newspaper distributed to thousands of schools across India"
+      ]
+    },
+    {
+      "id": "exp-alc-intern",
+      "technical": false,
+      "title": "Presentation Developer Intern",
+      "subtitle": "Access Livelihoods Consulting",
+      "date": "Apr 2021 – May 2021",
+      "location": "Mumbai, India",
+      "type": "Internship",
+      "tags": [
+        "Data Visualization",
+        "Investor Relations",
+        "Research"
+      ],
+      "highlights": [
+        "Developed a 25+ slide investor pitch deck with data visualizations through in-depth research and analysis, enabling the ALC foundation to communicate impact to prospective investors under a tight deadline"
+      ]
+    },
+    {
+      "id": "exp-isro-expo",
+      "technical": false,
+      "title": "Expo Presenter",
+      "subtitle": "ISRO, Indian Space Research Organization",
+      "date": "Nov 2019",
+      "location": "Mumbai, India",
+      "type": "Event",
+      "tags": [
+        "Science Communication",
+        "Public Speaking"
+      ],
+      "highlights": [
+        "Researched and communicated ISRO project information to students and parents from across Mumbai at a public space exposition, demonstrating strong science communication skills"
+      ]
+    },
+    {
+      "id": "exp-iit-solar",
+      "technical": false,
+      "title": "Solar Student Ambassador",
+      "subtitle": "Indian Institute of Technology, Bombay",
+      "date": "Sep 2019",
+      "location": "Mumbai, India",
+      "type": "Event",
+      "tags": [
+        "Clean Energy",
+        "Education",
+        "Guinness World Record"
+      ],
+      "highlights": [
+        "Guided 100+ students in building solar lamps and communicated the importance of clean energy, contributing to a Guinness World Record for the most solar lamps lit simultaneously"
+      ]
+    }
+  ],
+  "research": [
+    {
+      "id": "res-solids",
+      "title": "Research Volunteer",
+      "subtitle": "SOLIDS Lab, University of Victoria",
+      "date": "Jan 2026 – Present",
+      "location": "Victoria, BC",
+      "supervisor": "Dr. Navneet Popli",
+      "description": "Contributing to a team of undergraduate and graduate researchers under Dr. Navneet Popli, developing project proposals in autonomous systems domains including MASS (Maritime Autonomous Surface Ships) and CAVS (Connected and Autonomous Vehicle Systems)"
+    },
+    {
+      "id": "res-segal",
+      "title": "Research Volunteer",
+      "subtitle": "SEGAL Lab, University of Victoria",
+      "date": "Oct 2024 – Dec 2024",
+      "location": "Victoria, BC",
+      "supervisor": null,
+      "description": "Supported software engineering research by assisting with general lab tasks and providing user feedback for ongoing research projects"
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-foodbridge",
+      "title": "FoodBridge",
+      "event": "UVicHacks x Inspire 2026",
+      "award": "People's Choice Award, 7th Overall",
+      "date": "Jan 2026",
+      "url": "https://eshu3104.github.io/uvichacks-jan26/",
+      "type": "Hackathon",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "Radix UI",
+        "Flask",
+        "PostgreSQL",
+        "Google Maps API"
+      ],
+      "description": "A food-rescue marketplace bridging surplus food from businesses to shelters.",
+      "highlights": [
+        "Built in 24 hours using React, TypeScript, Vite, Tailwind CSS, Radix UI; designed a full production roadmap (Flask, PostgreSQL, Google Maps API) demonstrating end-to-end product thinking",
+        "Designed a food-rescue marketplace bridging surplus food from businesses to shelters, modeling potential impact of 12,400 lbs rescued/month, 89+ shelters served, and 34,000+ meals enabled",
+        "Key features: real-time surplus-to-needs donation marketplace, optimized volunteer pickup routing, shelter inventory tracking with recipe suggestions, QR-based trust framework to reduce donor liability anxiety"
+      ]
+    },
+    {
+      "id": "proj-precheckai",
+      "title": "PreCheck.ai",
+      "event": "nwHacks 2026",
+      "award": "Finalist: Best Use of Gemini API & Best Use of .tech",
+      "date": "Jan 2026",
+      "url": "https://www.precheckai.tech",
+      "type": "Hackathon",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "FastAPI",
+        "Gemini API",
+        "scikit-learn",
+        "RAG",
+        "HistGradientBoosting"
+      ],
+      "team": [
+        "600+ participants"
+      ],
+      "description": "A 4-stage ML validation pipeline to cross-reference clinical documents against BC insurance policies and predict claim-denial probability.",
+      "highlights": [
+        "Architected a 4-stage ML validation pipeline (Gemini Vision OCR, RAG policy audit, HistGradientBoosting risk scoring, remediation dashboard) to cross-reference clinical documents against BC insurance policies and predict claim-denial probability, built among 600+ participants in 24 hours",
+        "Built using React, TypeScript, Vite, FastAPI, Gemini API, and scikit-learn; delivered actionable fix instructions with citation-level policy references to reduce preventable claim denials"
+      ]
+    },
+    {
+      "id": "proj-skynet",
+      "title": "SkyNet Space Biology Knowledge Engine",
+      "event": "NASA SpaceApps Hackathon 2025",
+      "award": null,
+      "date": "Oct 2025",
+      "url": "https://github.com/eshu3104/nasa-hackathon-2025",
+      "type": "Hackathon",
+      "tags": [
+        "Python",
+        "Flask",
+        "OpenAI",
+        "GPT-4o-mini",
+        "Semantic Search",
+        "RAG",
+        "NLP"
+      ],
+      "description": "AI semantic search platform processing 608 NASA publications using OpenAI embeddings and Python/Flask.",
+      "highlights": [
+        "Built AI semantic search platform processing 608 NASA publications (11,460 semantic chunks) using OpenAI embeddings and Python/Flask, delivering role-based research insights for scientists, educators, and funding managers",
+        "Implemented GPT-4o-mini document summarization, reducing literature review time by 60%; designed context-aware query interface with follow-up question logic for 3 distinct user personas"
+      ]
+    },
+    {
+      "id": "proj-votify",
+      "title": "Votify",
+      "event": "UVEC Hackathon 2025",
+      "award": null,
+      "date": "Oct 2025",
+      "url": "https://github.com/eshu3104/uvec-hackathon-2025",
+      "type": "Hackathon",
+      "tags": [
+        "React",
+        "Flask",
+        "Spotify Web API",
+        "WebSockets"
+      ],
+      "description": "Full-stack crowd-powered Spotify voting app with Kahoot-style lobby system and live voting.",
+      "highlights": [
+        "Built full-stack crowd-powered Spotify voting app in under 7 hours using React, Flask, Spotify Web API, and WebSockets; Kahoot-style lobby system, live voting between AI-recommended tracks, and auto-queuing logic"
+      ]
+    },
+    {
+      "id": "proj-grantfinder",
+      "title": "GrantFinder",
+      "event": "INSPIRE Ideathon",
+      "award": null,
+      "date": "Sep 2025",
+      "url": null,
+      "type": "Hackathon",
+      "tags": [
+        "AI",
+        "Grant Discovery",
+        "NLP",
+        "System Architecture"
+      ],
+      "description": "AI-powered grant discovery platform enabling personalized grant matching and draft proposal generation for non-profit organizations.",
+      "highlights": [
+        "Co-designed front-end and system architecture for an AI-powered grant discovery platform enabling personalized grant matching and draft proposal generation for non-profit organizations"
+      ]
+    },
+    {
+      "id": "proj-health-safety-checker",
+      "title": "Online Marketplace Health & Safety Checker",
+      "event": "Tenfold Cursor Hackathon",
+      "award": "5th Place",
+      "date": "Sep 2025",
+      "url": "https://youtu.be/dwB9p5dZw_Q",
+      "type": "Hackathon",
+      "tags": [
+        "Chrome Extension",
+        "REST APIs",
+        "JavaScript"
+      ],
+      "description": "Chrome extension integrating 6+ authoritative health/safety databases to deliver real-time product risk alerts.",
+      "highlights": [
+        "Built a Chrome extension in 4 hours integrating 6+ authoritative health/safety databases via REST APIs to deliver real-time product risk alerts for Amazon, eBay, and Walmart listings"
+      ]
+    },
+    {
+      "id": "proj-deepracer",
+      "title": "AWS DeepRacer",
+      "event": "Reinforcement Learning Competition",
+      "award": "5th Place out of 100 competitors",
+      "date": "Nov 2024",
+      "url": "https://github.com/eshu3104/AWSDeepracer",
+      "type": "Competition",
+      "tags": [
+        "Reinforcement Learning",
+        "Python",
+        "AWS"
+      ],
+      "description": "Engineered a reward function for an RL racing model achieving 5th place in a physical race.",
+      "highlights": [
+        "Engineered a reward function for an RL racing model analyzing speed, steering, and track positioning through 200+ training iterations; achieved 5th place out of 100 competitors in a physical race",
+        "Attained a race time of 9.729 seconds on the re:Invent 2018 track, finishing within 2 seconds of the world record"
+      ]
+    },
+    {
+      "id": "proj-fairfind",
+      "title": "FairFind",
+      "event": "SENG 310: Human-Computer Interaction",
+      "award": null,
+      "date": "Sep 2025 – Nov 2025",
+      "url": null,
+      "type": "Academic",
+      "tags": [
+        "HCI",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Figma",
+        "Usability Testing"
+      ],
+      "description": "Full HCI research-to-prototype pipeline for a fairness-focused product discovery interface.",
+      "highlights": [
+        "Led a full HCI research-to-prototype pipeline: ethnographic research and surveys with 20+ participants, persona and journey mapping, low-fidelity sketches, HTML/CSS/JS medium-fidelity prototype, heuristic evaluation, and usability testing",
+        "Identified 10+ usability issues across Nielsen's heuristics through iterative testing; refined design to achieve a mean satisfaction score of 4.17/5.0 with 100% task completion across all test participants"
+      ]
+    },
+    {
+      "id": "proj-residence-portal",
+      "title": "UVic Residence Maintenance Portal Redesign",
+      "event": "CSC 375: Systems Analysis",
+      "award": null,
+      "date": "Sep 2025 – Nov 2025",
+      "url": null,
+      "type": "Academic",
+      "tags": [
+        "UML",
+        "BPMN",
+        "Figma",
+        "Requirements Engineering",
+        "Systems Analysis"
+      ],
+      "team": [
+        "6-person team (G20 Software Solutions)"
+      ],
+      "description": "Designed a unified web-based maintenance portal for 2,000+ residence students, replacing the fragmented StarRez system.",
+      "highlights": [
+        "Led a 6-person consulting team (G20 Software Solutions) to design a unified web-based maintenance portal for 2,000+ residence students, replacing the fragmented StarRez system to improve request tracking and communication transparency",
+        "Delivered full UML domain model, BPMN process models, functional/non-functional requirements, use cases, and Figma prototypes across 3 user roles (residents, staff, contractors), designed for WCAG 2.2 compliance and StarRez integration"
+      ]
+    },
+    {
+      "id": "proj-seng265",
+      "title": "Web Crawler, Index-Search Tool, Priority Queue, Password Analysis Tool",
+      "event": "SENG 265: Software Development Methods",
+      "award": null,
+      "date": "Sep 2023 – Dec 2023",
+      "url": null,
+      "type": "Academic",
+      "tags": [
+        "C",
+        "Python",
+        "Regex",
+        "Bash"
+      ],
+      "description": "Developed 4 software projects in C, Python, Regex, and Bash across the fall term.",
+      "highlights": [
+        "Developed 4 software projects in C, Python, Regex, and Bash across the fall term"
+      ]
+    },
+    {
+      "id": "proj-portfolio",
+      "title": "Personal Portfolio Site",
+      "event": null,
+      "award": null,
+      "date": "May 2026",
+      "url": "https://www.eshu.earth",
+      "type": "Personal",
+      "tags": [
+        "Next.js",
+        "React",
+        "Tailwind",
+        "Supabase",
+        "Redis",
+        "Three.js",
+        "WebAudio",
+        "OpenAI",
+        "GitHub Actions",
+        "RAG",
+        "TypeScript"
+      ],
+      "description": "A personal portfolio site with RAG-powered chat, TTS, and a 3D VRM avatar.",
+      "highlights": [
+        "Built a retrieval-augmented generation pipeline using OpenAI embeddings and Supabase RPC vector search, retrieving the top-5 most relevant chunks from resume and project data at a 0.2 cosine similarity threshold and feeding them as context to GPT-4o mini",
+        "Automated knowledge-base sync via a GitHub Actions workflow triggered on resume.tex commits — uses Claude to parse LaTeX into structured JSON, re-embeds with OpenAI text-embedding-3-small, and upserts to Supabase",
+        "Streamed chat completions token-by-token via the ReadableStream API, chunking output at sentence boundaries or every 10 words to pipeline TTS fetches before the full response completes",
+        "Built a low-latency TTS pipeline using OpenAI tts-1, switching from MP3 to raw PCM output (Int16, 24kHz mono) and manually constructing AudioBuffer objects to bypass the browser MP3 decoder entirely",
+        "Implemented a sequential fetch queue feeding a downstream playback queue, ensuring multi-chunk TTS audio plays in order without overlap regardless of network jitter",
+        "Drove real-time lip sync on a Three.js VRM avatar by reading RMS amplitude from a WebAudio AnalyserNode at 60fps and lerping VRM mouth blend shapes frame-by-frame",
+        "Optimised the VRM render loop by caching all bone references on load, removing per-frame getNormalizedBoneNode calls, achieving a stable 60fps on mid-range hardware",
+        "Enforced per-IP rate limiting across chat and TTS endpoints via Upstash Redis sliding windows (10 req / 60 s), logged all interactions to Supabase, and authored a GDPR-compliant privacy policy covering 5 jurisdictions",
+        "Shipped on Next.js 14, React 19, and Tailwind v4 with a 3-tab navigation system, hash-synced deep linking, a filterable project grid across 4 categories, and modal drill-downs for 15 projects"
+      ]
+    },
+    {
+      "id": "proj-tooblue",
+      "title": "Discord Weather Bot (TooBlue)",
+      "event": null,
+      "award": null,
+      "date": "May 2024 – Jun 2024",
+      "url": null,
+      "type": "Personal",
+      "tags": [
+        "Node.js",
+        "Discord API",
+        "OpenWeatherMap API"
+      ],
+      "description": "A Discord bot displaying real-time weather data including temperature, humidity, pressure, visibility, and wind metrics.",
+      "highlights": [
+        "Built a Discord bot in Node.js integrating the OpenWeatherMap API to display real-time weather data including temperature, humidity, pressure, visibility, and wind metrics on demand"
+      ]
+    },
+    {
+      "id": "proj-trading-card",
+      "title": "YouTuber Trading Card Generator",
+      "event": null,
+      "award": null,
+      "date": "May 2024",
+      "url": null,
+      "type": "Personal",
+      "tags": [
+        "Python",
+        "YouTube Data API",
+        "BeautifulSoup",
+        "Pillow"
+      ],
+      "description": "Python application generating trading cards from YouTube channel data.",
+      "highlights": [
+        "Developed a Python application integrating YouTube Data API and BeautifulSoup web scraping to auto-fetch channel stats, avatars, and quotes, then programmatically overlay data onto custom card templates via Pillow"
+      ]
+    },
+    {
+      "id": "proj-bharat-app",
+      "title": "Bharat App",
+      "event": null,
+      "award": null,
+      "date": "Sep 2020",
+      "url": null,
+      "type": "Personal",
+      "tags": [
+        "Swift",
+        "iOS",
+        "CS50x"
+      ],
+      "description": "Educational iOS app in Swift visualizing data for India's 28 states and 8 union territories.",
+      "highlights": [
+        "Built an educational iOS app in Swift visualizing data for India's 28 states and 8 union territories as a CS50x final project, delivered as a functional MVP within a one-week deadline"
+      ]
+    },
+    {
+      "id": "proj-grading-interface",
+      "title": "Student Grading Interface",
+      "event": null,
+      "award": null,
+      "date": "Mar 2019",
+      "url": null,
+      "type": "Personal",
+      "tags": [
+        "Visual Basic",
+        "MS Access"
+      ],
+      "description": "Desktop grade management application enabling educators to input, store, and link student academic records.",
+      "highlights": [
+        "Developed a desktop grade management application in Visual Basic and MS Access enabling educators to input, store, and link student academic records"
+      ]
+    },
+    {
+      "id": "proj-necronomicon",
+      "title": "The Necronomicon (2D Platformer)",
+      "event": null,
+      "award": null,
+      "date": "Feb 2019",
+      "url": null,
+      "type": "Personal",
+      "tags": [
+        "Unreal Engine",
+        "Game Development"
+      ],
+      "description": "2D platformer created in Unreal Engine within a 48-hour sprint, securing 40+ downloads on itch.io.",
+      "highlights": [
+        "Created a 2D platformer in Unreal Engine within a 48-hour sprint, securing 40+ downloads on itch.io through effective use of open-source assets"
+      ]
+    }
+  ],
+  "skills": {
+    "languages": [
+      "Python",
+      "Java",
+      "C",
+      "JavaScript",
+      "TypeScript",
+      "SQL",
+      "MySQL",
+      "PostgreSQL",
+      "Swift",
+      "Visual Basic",
+      "Bash"
+    ],
+    "webAndFrameworks": [
+      "HTML/CSS",
+      "Node.js",
+      "Flask",
+      "FastAPI",
+      "React",
+      "REST APIs",
+      "WebSockets",
+      "Chrome Extensions"
+    ],
+    "aiml": [
+      "OpenAI API",
+      "Google Gemini API",
+      "RAG architecture",
+      "vector embeddings",
+      "semantic search",
+      "prompt engineering",
+      "NLP",
+      "scikit-learn",
+      "HistGradientBoosting",
+      "reinforcement learning"
+    ],
+    "databases": [
+      "SQL Server Management Studio",
+      "Microsoft Access",
+      "Azure DevOps",
+      "SharePoint",
+      "DataGrip",
+      "SSIS",
+      "Power Platform"
+    ],
+    "tools": [
+      "Git",
+      "GitHub",
+      "PowerShell",
+      "Power Apps",
+      "Power Automate",
+      "PowerBI",
+      "ServiceNow",
+      "Figma",
+      "Draw.io",
+      "Pillow",
+      "BeautifulSoup"
+    ]
+  },
+  "volunteering": [
+    {
+      "id": "vol-python-workshop",
+      "role": "Python Workshop Assistant / Mentor",
+      "organization": "UVic WEST x Redbrick",
+      "date": "Jun 2024 – Aug 2024",
+      "location": "Victoria, BC",
+      "highlights": [
+        "Mentoring 60+ students per session with Python exercises, case studies, and programming fundamentals via Zoom, supporting Women in Engineering & STEM (WEST) and Redbrick"
+      ]
+    },
+    {
+      "id": "vol-salvagetech",
+      "role": "Co-Founder",
+      "organization": "SalvageTech, E-Waste Recycling Initiative",
+      "date": "Jan 2021",
+      "location": "Mumbai, India",
+      "highlights": [
+        "Co-founded environmental initiative conducting collection drives to recycle and refurbish old technology, reducing e-waste"
+      ]
+    },
+    {
+      "id": "vol-lespoir",
+      "role": "Founder & Team Lead",
+      "organization": "L'espoir, Anti-Bullying Social Media Campaign",
+      "date": "Apr 2020 – May 2022",
+      "location": "International",
+      "highlights": [
+        "Led an English-French international campaign addressing community wellbeing and social justice through cross-cultural communication"
+      ]
+    },
+    {
+      "id": "vol-sports-conversation",
+      "role": "Department Head",
+      "organization": "The Sports Conversation, Media & Podcasting",
+      "date": "Apr 2020 – May 2022",
+      "location": null,
+      "highlights": [
+        "Led team creating social media content and managing podcast production, overseeing content strategy and coordination"
+      ]
+    },
+    {
+      "id": "vol-judge-nps",
+      "role": "Judge",
+      "organization": "National Public School, Creative Writing Competition",
+      "date": "Jan 2021",
+      "location": "India",
+      "highlights": [
+        "Evaluated 20+ essays in a 500-word creative writing competition, determining the top 3 entries across a range of criteria"
+      ]
+    },
+    {
+      "id": "vol-un-sdg",
+      "role": "UN SDG International Summit Participant",
+      "organization": "CAS Summit, NES International School",
+      "date": "Jan 2021",
+      "location": "Mumbai, India",
+      "highlights": [
+        "Presented innovative solutions for SDG 17 (Partnerships for the Goals) in an interschool IB summit focused on sustainability"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "id": "award-nwhacks-gemini",
+      "name": "nwHacks 2026 Finalist – Best Use of Google Gemini API & Best Use of .tech Domain",
+      "issuer": "nwHacks",
+      "date": "Jan 2026"
+    },
+    {
+      "id": "award-foodbridge-peoples-choice",
+      "name": "FoodBridge People's Choice Award",
+      "issuer": "UVicHacks 2026",
+      "date": "Jan 2026"
+    },
+    {
+      "id": "award-health-safety-5th",
+      "name": "Health & Safety Checker 5th Place",
+      "issuer": "Tenfold Cursor Hackathon",
+      "date": "Sep 2025"
+    },
+    {
+      "id": "award-coop-scholarship",
+      "name": "Jarmila Vlasta Von Drak Thouvenelle Co-op Scholarship",
+      "issuer": "University of Victoria",
+      "date": "Feb 2025"
+    },
+    {
+      "id": "award-outstanding-student",
+      "name": "Outstanding Student's Movement Award",
+      "issuer": "NES International School",
+      "date": "Mar 2019"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "CS50x: Introduction to Computer Science",
+      "issuer": "HarvardX",
+      "issued": "2021"
+    },
+    {
+      "name": "Python for Data Science & ML",
+      "issuer": "Udemy",
+      "issued": "2021"
+    },
+    {
+      "name": "Learning Python for Data Analysis & Visualisation",
+      "issuer": "Udemy",
+      "issued": "2021"
+    },
+    {
+      "name": "Complete Python Bootcamp",
+      "issuer": "Udemy",
+      "issued": "2020"
+    },
+    {
+      "name": "First Aid & CPR/AED Level C",
+      "issuer": "Canadian Red Cross",
+      "issued": "Sep 2025",
+      "expires": "Sep 2028"
+    },
+    {
+      "name": "safeTALK Suicide Alertness For Everyone",
+      "issuer": "LivingWorks",
+      "issued": "Oct 2024"
+    },
+    {
+      "name": "Microsoft Office Specialist: PowerPoint",
+      "issuer": "Microsoft",
+      "issued": "Nov 2019"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Fluent/Native"
+    },
+    {
+      "language": "Hindi",
+      "proficiency": "Fluent/Native"
+    },
+    {
+      "language": "French",
+      "proficiency": "Working Proficiency"
+    }
+  ]
+}
