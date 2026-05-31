@@ -180,6 +180,22 @@
   ],
   "projects": [
     {
+      "id": "proj-portfolio",
+      "title": "Portfolio",
+      "date": "May 2026",
+      "url": "www.eshu.earth",
+      "type": "personal",
+      "tags": ["Next.js", "Tailwind CSS", "Supabase", "Redis", "Three.js", "WebAudio", "OpenAI", "GitHub Actions"],
+      "description": "Built an interactive personal portfolio featuring a real-time AI assistant, 3D avatar, and automated knowledge pipeline.",
+      "highlights": [
+        "Developed a RAG-based AI chat assistant using OpenAI embeddings + Supabase pgvector, retrieving from 38 knowledge chunks with sub-second latency",
+        "Automated knowledge base updates via a GitHub Actions pipeline (LaTeX parsing → embedding → Supabase upsert)",
+        "Engineered a low-latency text-to-speech pipeline, streaming responses in real time and reducing time-to-first-audio to <500ms",
+        "Built a real-time lip-synced 3D avatar using Three.js + WebAudio API, animating speech at 60 FPS",
+        "Strengthened backend with rate limiting, audit logging, and GDPR-compliant privacy coverage across 5 jurisdictions"
+      ]
+    },
+    {
       "id": "proj-foodbridge",
       "title": "FoodBridge",
       "event": "UVicHacks x Inspire 2026",
