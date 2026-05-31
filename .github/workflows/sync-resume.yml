@@ -3,6 +3,9 @@ name: Sync Resume to RAG
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -28,4 +31,4 @@ jobs:
           git config user.email "actions@github.com"
           git add data/experiences.json
           git diff --staged --quiet || git commit -m "chore: sync experiences.json"
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/eshu3104/portfolio.git
