@@ -72,28 +72,42 @@ ${context}
 })
 
 
-    const encoder = new TextEncoder()
-    let fullResponse = ''
-    const readable = new ReadableStream({
-    async start(controller) {
-        for await (const chunk of stream) {
-        const text = chunk.choices[0]?.delta?.content ?? ''
-        if (text) controller.enqueue(encoder.encode(text))
-        fullResponse += text
-        }
-        controller.close()
-        await supabase.from('logs').insert({
-            ip,
-            question,
-            response: fullResponse,
-            tts: true
-            })
-    },
-    })
+   const encoder = new TextEncoder()
+let fullResponse = ''
 
-    return new Response(readable, {
-        headers: { 'Content-Type': 'text/plain; charset=utf-8' },
-    })
+const readable = new ReadableStream({
+  async start(controller) {
+    try {
+      for await (const chunk of stream) {
+        const text = chunk.choices[0]?.delta?.content ?? ''
+        if (text) {
+          controller.enqueue(encoder.encode(text))
+          fullResponse += text
+        }
+      }
+    } catch (err) {
+      console.error('Stream error:', err)
+    } finally {
+      controller.close()
+
+      // Always attempt to log, even if stream errored mid-way
+      const { error } = await supabase.from('logs').insert({
+        ip,
+        question,
+        response: fullResponse,
+        tts: true,
+      })
+
+      if (error) {
+        console.error('Supabase log error:', error)
+      }
+    }
+  },
+})
+
+return new Response(readable, {
+  headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+})
 
     
 }
