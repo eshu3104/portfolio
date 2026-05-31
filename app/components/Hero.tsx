@@ -8,7 +8,7 @@ const TYPEWRITER_LINES = [
     "AI/Data + Full Stack + whatever's trending ",
     "I build things that solve real problems",
     "Turning messy data into decisions that matter",
-    "Open to Co-Ops — let's build something ",
+    "Open to Co-Ops, let's build something ",
     "Based in Victoria, BC",
     "Love travelling & video games ",
 ]
