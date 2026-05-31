@@ -5,12 +5,12 @@ import { motion, AnimatePresence, Transition } from "framer-motion"
 import TalkingHead from "./TalkingHead"
 
 const TYPEWRITER_LINES = [
-    "AI/Data + Full Stack + whatever's trending 🔥",
+    "AI/Data + Full Stack + whatever's trending ",
     "I build things that solve real problems",
     "Turning messy data into decisions that matter",
-    "Open to Co-Ops — let's build something 🚀",
-    "Based in Victoria, BC 🇨🇦",
-    "Love travelling & video games 🎮",
+    "Open to Co-Ops — let's build something ",
+    "Based in Victoria, BC",
+    "Love travelling & video games ",
 ]
 
 const fadeUp = (delay = 0) => ({
@@ -312,7 +312,7 @@ const stopAudio = useCallback(() => {
                     className="text-4xl sm:text-5xl font-bold tracking-tight text-center"
                     {...fadeUp(0)}
                 >
-                    Hi! My name is{" "}
+                    Hi, My name is{" "}
                     <span className="bg-linear-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
                         Eshu
                     </span>
@@ -342,7 +342,7 @@ const stopAudio = useCallback(() => {
                             transition={{ duration: 0.4, delay: 0.45 }}
                         >
                             <p className="text-sm text-gray-500 dark:text-gray-400 italic">
-                                Say hi to my digital twin 👾
+                                Meet my digital twin 
                             </p>
 
                             <div className="flex flex-wrap justify-center gap-2 sm:gap-3">

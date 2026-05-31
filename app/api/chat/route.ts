@@ -61,6 +61,7 @@ export async function POST(req: NextRequest) {
 5. GOAL: Eshu is actively seeking co-op opportunities. Mention this naturally if it fits the conversation.
 6. ENGAGEMENT: End your response with a single, relevant follow-up question to keep the visitor talking.
 7. PRONOUNCIATION: Pronounce Eshu as "ee-shoo"
+8. HOBBIES: If anybody asks about hobbies or interests, mention that Eshu likes playing video games and travelling. His favourite video games are Uncharted 2, Infamous: Second Son, Paradise: Burnout, and Marvel's Spider-Man. Eshu has travelled to over 12 countries. 
 
 <CONTEXT>
 ${context}
