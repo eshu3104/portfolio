@@ -3,6 +3,7 @@ import { OpenAI } from "openai"
 import { NextRequest } from "next/server"
 import { Ratelimit } from "@upstash/ratelimit"
 import { Redis } from "@upstash/redis"
+import { after } from 'next/server'
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!)
 const openai = new OpenAI( {apiKey: process.env.OPENAI_API_KEY!} )
@@ -85,24 +86,20 @@ const readable = new ReadableStream({
           fullResponse += text
         }
       }
-    } catch (err) {
-      console.error('Stream error:', err)
     } finally {
       controller.close()
-
-      // Always attempt to log, even if stream errored mid-way
-      const { error } = await supabase.from('logs').insert({
-        ip,
-        question,
-        response: fullResponse,
-        tts: true,
-      })
-
-      if (error) {
-        console.error('Supabase log error:', error)
-      }
     }
   },
+})
+
+after(async () => {
+  const { error } = await supabase.from('logs').insert({
+    ip,
+    question,
+    response: fullResponse,
+    tts: true,
+  })
+  if (error) console.error('Supabase log error:', error)
 })
 
 return new Response(readable, {
