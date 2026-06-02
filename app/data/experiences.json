@@ -182,7 +182,7 @@
       "id": "proj-portfolio",
       "title": "Portfolio",
       "date": "May 2026",
-      "url": "www.eshu.earth",
+      "url": "https://github.com/eshu3104/portfolio",
       "type": "personal",
       "tags": ["Next.js", "Tailwind CSS", "Supabase", "Redis", "Three.js", "WebAudio", "OpenAI", "GitHub Actions"],
       "description": "Built an interactive personal portfolio featuring a real-time AI assistant, 3D avatar, and automated knowledge pipeline.",
