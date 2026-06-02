@@ -105,7 +105,17 @@ This single command:
 3. Writes `app/data/experiences.json` (rendered by the site's tabs).
 4. Chunks + embeds the content and upserts it into Supabase (powers the avatar's answers).
 
-It also runs in CI via the **Sync Resume to RAG** GitHub Action (`workflow_dispatch`).
+Because both the visible content **and** the avatar's knowledge derive from this one file, the site and the chatbot can never drift out of sync — updating my résumé is a single source-of-truth change, not a manual copy-paste across the app and a vector database.
+
+### Continuous deployment of résumé data
+
+The same pipeline runs in CI as the **Sync Resume to RAG** GitHub Action ([`.github/workflows/sync-resume.yml`](.github/workflows/sync-resume.yml)), so a résumé update can ship without touching a local machine:
+
+- **Trigger:** `workflow_dispatch` (manual, one-click from the Actions tab) — chosen over push/schedule so embeddings are only regenerated (and OpenAI/Anthropic credits spent) deliberately.
+- **Steps:** checkout → install → run `sync-resume.ts` → commit the regenerated `app/data/experiences.json` back to the repo.
+- **Secrets** (configured in repo settings, never committed): `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`.
+
+Pushing the committed JSON then triggers a Vercel redeploy, so the live site and the RAG index update from a single button press.
 
 ## Scripts
 
