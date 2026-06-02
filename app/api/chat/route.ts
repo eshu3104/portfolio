@@ -12,41 +12,66 @@ const ratelimit = new Ratelimit({
   limiter: Ratelimit.slidingWindow(10, "60 s"),
 })
 
+const TEXT = { 'Content-Type': 'text/plain; charset=utf-8' }
+
 export async function POST(req: NextRequest) {
-    const { question } = await req.json()
-
-    const ip = req.headers.get('x-forwarded-for') ?? 'anonymous'
-    const { success } = await ratelimit.limit(ip)
-
-    if (!success) {
-    return new Response("Too many requests. Please slow down!", { 
-  status: 429,
-  headers: { 'Content-Type': 'text/plain; charset=utf-8' }
-})
+    let question: string
+    try {
+        question = (await req.json()).question
+    } catch {
+        return new Response("Invalid request.", { status: 400, headers: TEXT })
     }
 
-    const result = await openai.embeddings.create({
-    model: 'text-embedding-3-small',
-    input: question
-})
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'anonymous'
 
-    const queryEmbedding = result.data[0].embedding
+    // Log every outcome — not just the happy path — so rate-limited, no-match,
+    // and errored requests are captured too. tts defaults false (non-streamed).
+    const logChat = (response: string, tts = false) => {
+        after(async () => {
+            const { error } = await supabase.from('logs').insert({ ip, question, response, tts })
+            if (error) console.error('Supabase log error:', error)
+        })
+    }
 
-    const { data: chunks } = await supabase.rpc('match_embeddings', {
-        query_embedding: queryEmbedding,
-        match_threshold: 0.2,
-        match_count: 5,
-    })
+    if (typeof question !== 'string' || !question.trim()) {
+        return new Response("Missing question.", { status: 400, headers: TEXT })
+    }
 
-     if (!chunks || chunks.length === 0) {
-  return new Response("I don't have information about that.", {
-  headers: { 'Content-Type': 'text/plain; charset=utf-8' }
-})
-}
+    const { success } = await ratelimit.limit(ip)
+    if (!success) {
+        logChat('[rate limited]')
+        return new Response("Too many requests. Please slow down!", { status: 429, headers: TEXT })
+    }
 
-    const context = chunks?.map((c: any) => c.content).join('\n\n') ?? ''
+    let chunks: any
+    try {
+        const result = await openai.embeddings.create({
+            model: 'text-embedding-3-small',
+            input: question,
+        })
+        const queryEmbedding = result.data[0].embedding
+        const rpc = await supabase.rpc('match_embeddings', {
+            query_embedding: queryEmbedding,
+            match_threshold: 0.2,
+            match_count: 5,
+        })
+        chunks = rpc.data
+    } catch (err) {
+        console.error('Chat error (retrieval):', err)
+        logChat('[error during retrieval]')
+        return new Response("Something went wrong. Please try again.", { status: 500, headers: TEXT })
+    }
 
-    const stream = await openai.chat.completions.create({
+    if (!chunks || chunks.length === 0) {
+        logChat("I don't have information about that.")
+        return new Response("I don't have information about that.", { headers: TEXT })
+    }
+
+    const context = chunks.map((c: any) => c.content).join('\n\n')
+
+    let stream: any
+    try {
+        stream = await openai.chat.completions.create({
     model: 'gpt-4o-mini',
     stream: true,
     messages: [
@@ -70,8 +95,12 @@ ${context}
         },
         { role: 'user', content: question },
     ],
-})
-
+        })
+    } catch (err) {
+        console.error('Chat error (generation):', err)
+        logChat('[error generating response]')
+        return new Response("Something went wrong. Please try again.", { status: 500, headers: TEXT })
+    }
 
    const encoder = new TextEncoder()
 let fullResponse = ''
