@@ -244,7 +244,7 @@ async function main() {
   console.log("\n🤖  Parsing with Claude...");
   const parsed = await parseWithClaude(latexSource);
 
-  const outPath = "./data/experiences.json";
+  const outPath = "./app/data/experiences.json";
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, JSON.stringify(parsed, null, 2));
   console.log(`    Wrote ${outPath}`);
