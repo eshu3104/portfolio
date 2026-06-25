@@ -387,9 +387,9 @@ export default function Hero() {
                         <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/eshu-belgotra/" aria-label="LinkedIn" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                             <FaLinkedin size={20} />
                         </a>
-                        <a href="mailto:eshubelgotra@uvic.ca" aria-label="Email" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+                        <button onClick={() => goToSection("contact")} aria-label="Email" className="hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer">
                             <Mail size={20} />
-                        </a>
+                        </button>
                     </motion.div>
                 </div>
 
