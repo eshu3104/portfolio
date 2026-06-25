@@ -1,5 +1,6 @@
 "use client"
-import { Send } from "lucide-react"
+import { Send, Download, Mail } from "lucide-react"
+import { FaGithub, FaLinkedin } from "react-icons/fa"
 import { useState, useEffect, useRef, useCallback } from "react"
 import { motion, AnimatePresence, Transition } from "framer-motion"
 import TalkingHead from "./TalkingHead"
@@ -18,6 +19,11 @@ const fadeUp = (delay = 0) => ({
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.5, delay, ease: "easeOut" } as Transition
 })
+
+function goToSection(id: string, tab?: "timeline" | "projects" | "skills") {
+    if (tab) window.location.hash = tab
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+}
 
 function Typewriter() {
     const [lineIndex, setLineIndex] = useState(0)
@@ -54,9 +60,9 @@ function Typewriter() {
     }, [displayed, phase, lineIndex])
 
     return (
-        <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 h-6 flex items-center gap-0.5">
+        <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400 h-7 flex items-center gap-0.5">
             {displayed}
-            <span className="inline-block w-0.5 h-4 bg-gray-400 dark:bg-gray-500 ml-0.5 animate-pulse" />
+            <span className="inline-block w-0.5 h-5 bg-gray-400 dark:bg-gray-500 ml-0.5 animate-pulse" />
         </p>
     )
 }
@@ -101,6 +107,9 @@ export default function Hero() {
     // TTS fetch queue — ensures chunks are fetched and played in order
     const fetchQueueRef  = useRef<string[]>([])
     const isFetchingRef  = useRef(false)
+
+    // Chat scroll container
+    const chatRef = useRef<HTMLDivElement | null>(null)
 
     // ── Ensure AudioContext exists (must be created after a user gesture) ──
     const ensureAudioCtx = useCallback(() => {
@@ -196,20 +205,20 @@ export default function Hero() {
     }, [drainFetchQueue])
 
     // ── Stop all audio immediately and flush queues ───────────────────────────
-const stopAudio = useCallback(() => {
-    fetchQueueRef.current = []
-    audioQueueRef.current = []
-    isFetchingRef.current = false
-    isPlayingRef.current = false
-    stopAmplitudeLoop()
-}, [stopAmplitudeLoop])
+    const stopAudio = useCallback(() => {
+        fetchQueueRef.current = []
+        audioQueueRef.current = []
+        isFetchingRef.current = false
+        isPlayingRef.current = false
+        stopAmplitudeLoop()
+    }, [stopAmplitudeLoop])
 
     // ── Main send handler ─────────────────────────────────────────────────
     async function handleSend(overrideQuestion?: string) {
         const question = overrideQuestion ?? input
         if (!question.trim()) return
-        
-        stopAudio()          // ← add this line
+
+        stopAudio()
         ensureAudioCtx()
 
         setMessages(prev => [
@@ -277,6 +286,11 @@ const stopAudio = useCallback(() => {
         setLoading(false)
     }
 
+    // ── Keep chat scrolled to the latest message ──────────────────────────
+    useEffect(() => {
+        if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight
+    }, [messages])
+
     // ── Cleanup on unmount ────────────────────────────────────────────────
     useEffect(() => {
         return () => {
@@ -286,7 +300,7 @@ const stopAudio = useCallback(() => {
     }, [stopAmplitudeLoop])
 
     return (
-        <div className="relative min-h-screen flex flex-col items-center pt-16 sm:pt-24 lg:pt-32 gap-4 sm:gap-6 overflow-hidden" id="home">
+        <div className="relative min-h-screen flex items-center justify-center pt-28 sm:pt-32 lg:pt-24 pb-16 overflow-hidden" id="home">
 
             {/* Noise texture overlay */}
             <div
@@ -304,147 +318,174 @@ const stopAudio = useCallback(() => {
             {/* Bottom fade to soften glow edge */}
             <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 sm:h-40 z-0 bg-linear-to-b from-transparent via-white/70 to-white dark:via-gray-950/70 dark:to-gray-950" />
 
-            {/* Content */}
-            <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 w-full">
+            {/* Content — two columns: info left, avatar + chat right */}
+            <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,460px)] gap-10 lg:gap-14 items-center">
 
-                {/* 1. Name Heading */}
-                <motion.h1
-                    className="text-4xl sm:text-5xl font-bold tracking-tight text-center"
-                    {...fadeUp(0)}
+                {/* ─── LEFT: the important info ─────────────────────────── */}
+                <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-5 sm:gap-6">
+
+                    <motion.p
+                        className="text-xs sm:text-sm font-medium tracking-[0.18em] uppercase text-gray-400 dark:text-gray-500"
+                        {...fadeUp(0)}
+                    >
+                        AI / Data · Full Stack · Victoria, BC
+                    </motion.p>
+
+                    <motion.h1
+                        className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]"
+                        {...fadeUp(0.1)}
+                    >
+                        Hi, my name is{" "}
+                        <span className="bg-linear-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+                            Eshu
+                        </span>
+                    </motion.h1>
+
+                    <motion.div {...fadeUp(0.2)}>
+                        <Typewriter />
+                    </motion.div>
+
+                    <motion.p
+                        className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-md"
+                        {...fadeUp(0.3)}
+                    >
+                        Computer Science student turning messy data into decisions that
+                        matter — across AI/ML and full-stack. Open to co-op and internship
+                        roles for 2026.
+                    </motion.p>
+
+                    {/* CTAs */}
+                    <motion.div
+                        className="flex flex-wrap items-center justify-center lg:justify-start gap-3"
+                        {...fadeUp(0.4)}
+                    >
+                        <button
+                            onClick={() => goToSection("timeline", "projects")}
+                            className="bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 text-sm font-medium px-5 py-3 rounded-full flex items-center gap-2 hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors cursor-pointer"
+                        >
+                            See my work
+                            <span className="translate-y-px">→</span>
+                        </button>
+                        <a
+                            href="/Eshupriye_Belgotra_Resume.pdf"
+                            download="Eshupriye_Belgotra_Resume.pdf"
+                            className="border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 text-sm font-medium px-5 py-3 rounded-full flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        >
+                            <Download size={15} />
+                            Résumé
+                        </a>
+                    </motion.div>
+
+                    {/* Social links */}
+                    <motion.div
+                        className="flex items-center gap-5 text-gray-400 dark:text-gray-500"
+                        {...fadeUp(0.5)}
+                    >
+                        <a target="_blank" rel="noreferrer" href="https://www.github.com/eshu3104" aria-label="GitHub" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+                            <FaGithub size={20} />
+                        </a>
+                        <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/eshu-belgotra/" aria-label="LinkedIn" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+                            <FaLinkedin size={20} />
+                        </a>
+                        <a href="mailto:eshubelgotra@uvic.ca" aria-label="Email" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+                            <Mail size={20} />
+                        </a>
+                    </motion.div>
+                </div>
+
+                {/* ─── RIGHT: avatar + chatbox ──────────────────────────── */}
+                <motion.div
+                    className="flex flex-col items-center gap-3 w-full"
+                    {...fadeUp(0.25)}
                 >
-                    Hi, My name is{" "}
-                    <span className="bg-linear-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-                        Eshu
-                    </span>
-                </motion.h1>
-
-                {/* 2. Typewriter */}
-                <motion.div {...fadeUp(0.15)}>
-                    <Typewriter />
-                </motion.div>
-
-                {/* 3. Avatar */}
-                <motion.div {...fadeUp(0.3)} className="-mt-5 sm:-mt-7">
+                    {/* Avatar */}
                     <TalkingHead
                         amplitude={amplitude}
-                        className="w-56 h-64 sm:w-64 sm:h-72"
+                        className="w-52 h-60 sm:w-56 sm:h-64"
                     />
-                </motion.div>
 
-                {/* 4. Say hi + chips */}
-                <AnimatePresence>
-                    {messages.length === 0 && (
-                        <motion.div
-                            className="flex flex-col items-center gap-4"
-                            initial={{ opacity: 0, y: 16 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -8 }}
-                            transition={{ duration: 0.4, delay: 0.45 }}
-                        >
-                            <p className="text-sm text-gray-500 dark:text-gray-400 italic">
-                                Meet my digital twin 
-                            </p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 italic -mt-2">
+                        Meet my digital twin
+                    </p>
 
-                            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-                                {[
-                                    { label: "What's his tech stack?", q: "What's his tech stack?" },
-                                    { label: "See hackathon projects", q: "Tell me about his hackathon projects" },
-                                    { label: "Is he open to co-ops?", q: "Is he open to co-ops?" },
-                                ].map((chip, i) => (
-                                    <motion.button
-                                        key={chip.label}
-                                        onClick={() => handleSend(chip.q)}
+                    {/* Chatbox card */}
+                    <div className="w-full rounded-3xl border border-gray-200/80 dark:border-gray-800/80 bg-white/60 dark:bg-gray-900/50 backdrop-blur-sm shadow-sm overflow-hidden flex flex-col">
+
+                        {/* Conversation / starter chips */}
+                        <div ref={chatRef} className="flex flex-col gap-3 px-4 pt-4 max-h-72 min-h-[112px] overflow-y-auto">
+                            <AnimatePresence initial={false}>
+                                {messages.length === 0 ? (
+                                    <motion.div
+                                        key="chips"
+                                        className="flex flex-wrap gap-2 justify-center py-2"
                                         initial={{ opacity: 0, y: 8 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.3, delay: 0.55 + i * 0.08 }}
-                                        className="text-xs sm:text-sm bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 dark:bg-gray-800/80 dark:hover:bg-gray-700 dark:text-gray-100 dark:border-gray-600 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full transition-colors font-medium cursor-pointer shadow-sm"
+                                        exit={{ opacity: 0, y: -8 }}
+                                        transition={{ duration: 0.3 }}
                                     >
-                                        {chip.label}
-                                    </motion.button>
-                                ))}
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                                        {[
+                                            { label: "What's his tech stack?", q: "What's his tech stack?" },
+                                            { label: "See hackathon projects", q: "Tell me about his hackathon projects" },
+                                            { label: "Is he open to co-ops?", q: "Is he open to co-ops?" },
+                                        ].map((chip) => (
+                                            <button
+                                                key={chip.label}
+                                                onClick={() => handleSend(chip.q)}
+                                                className="text-xs sm:text-sm bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 dark:bg-gray-800/80 dark:hover:bg-gray-700 dark:text-gray-100 dark:border-gray-600 px-4 py-2 rounded-full transition-colors font-medium cursor-pointer shadow-sm"
+                                            >
+                                                {chip.label}
+                                            </button>
+                                        ))}
+                                    </motion.div>
+                                ) : (
+                                    messages.map((msg, i) => (
+                                        <motion.div
+                                            key={i}
+                                            initial={{ opacity: 0, y: 8 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.25 }}
+                                            className={`px-4 py-3 rounded-2xl text-sm max-w-[80%] ${
+                                                msg.role === "user"
+                                                    ? "bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 self-end rounded-br-sm"
+                                                    : "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200 self-start rounded-bl-sm"
+                                            }`}
+                                        >
+                                            {msg.role === "assistant" && msg.content === "" ? "Thinking..." : msg.content}
+                                        </motion.div>
+                                    ))
+                                )}
+                            </AnimatePresence>
+                        </div>
 
-                {/* 5. Chat Area */}
-                <AnimatePresence>
-                    {messages.length > 0 && (
-                        <motion.div
-                            className="flex flex-col gap-3 max-w-xl w-full px-4 max-h-96 overflow-y-auto"
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            {messages.map((msg, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 8 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.25 }}
-                                    className={`px-4 py-3 rounded-2xl text-sm max-w-[80%] ${
-                                        msg.role === "user"
-                                            ? "bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 self-end rounded-br-sm"
-                                            : "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200 self-start rounded-bl-sm"
-                                    }`}
-                                >
-                                    {msg.role === "assistant" && msg.content === "" ? "Thinking..." : msg.content}
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                        {/* Input bar */}
+                        <div className="flex items-center gap-2 p-3">
+                            <input
+                                type="text"
+                                placeholder="Ask me anything..."
+                                value={input}
+                                onChange={e => setInput(e.target.value)}
+                                onKeyDown={e => e.key === "Enter" && handleSend()}
+                                className="flex-1 bg-gray-100 border border-gray-200 placeholder-gray-400 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:placeholder-gray-500 dark:text-gray-100 rounded-full px-4 py-3 text-sm outline-none disabled:cursor-not-allowed"
+                                disabled={loading}
+                            />
+                            <button
+                                onClick={() => handleSend()}
+                                disabled={loading || !input.trim()}
+                                className="bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 w-11 h-11 rounded-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-opacity shrink-0"
+                            >
+                                <Send size={16} className="translate-x-0.5" />
+                            </button>
+                        </div>
+                    </div>
 
-                {/* 6. Input Bar */}
-                <motion.div
-                    className="flex items-center gap-3 max-w-xl w-full px-4"
-                    {...fadeUp(0.6)}
-                >
-                    <input
-                        type="text"
-                        placeholder="Ask me anything..."
-                        value={input}
-                        onChange={e => setInput(e.target.value)}
-                        onKeyDown={e => e.key === "Enter" && handleSend()}
-                        className="flex-1 bg-gray-100 border border-gray-200 placeholder-gray-400 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:placeholder-gray-500 dark:text-gray-100 rounded-full px-4 py-3 sm:px-6 sm:py-3.5 text-sm outline-none disabled:cursor-not-allowed"
-                        disabled={loading}
-                    />
-                    <button
-                        onClick={() => handleSend()}
-                        disabled={loading || !input.trim()}
-                        className="bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-opacity shrink-0"
-                    >
-                        <Send size={16} className="translate-x-0.5" />
-                    </button>
+                    {/* Privacy notice */}
+                    <p className="text-xs text-center text-gray-400 dark:text-gray-500">
+                        Chats may be logged for security.{" "}
+                        <a href="/privacy" className="underline underline-offset-2 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                            Privacy Policy
+                        </a>
+                    </p>
                 </motion.div>
-
-                {/* Privacy notice */}
-                <motion.p
-                    className="text-xs text-center text-gray-400 dark:text-gray-500 -mt-2"
-                    {...fadeUp(0.7)}
-                >
-                    Chats may be logged for security.{" "}
-                    <a href="/privacy" className="underline underline-offset-2 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
-                        Privacy Policy
-                    </a>
-                </motion.p>
-
-                {/* Scroll hint */}
-                <AnimatePresence>
-                    {messages.length === 0 && (
-                        <motion.div
-                            className="flex flex-col items-center gap-1 mt-0 animate-bounce pt-4 sm:pt-6"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3, delay: 0.8 }}
-                        >
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 dark:text-gray-600">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
 
             </div>
         </div>

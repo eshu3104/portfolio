@@ -17,13 +17,9 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme")
-    const isDark = stored === "dark"
-    document.documentElement.classList.toggle("dark", isDark)
-    setDark(isDark)
-    if (!stored) {
-      localStorage.setItem("theme", "light")
-    }
+    // The inline script in layout.tsx already applied the theme class
+    // (defaulting to dark). Sync the toggle's state to it.
+    setDark(document.documentElement.classList.contains("dark"))
   }, [])
 
   function toggleDark() {
