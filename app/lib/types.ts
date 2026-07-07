@@ -24,7 +24,7 @@ export interface Project {
   id: string;
   title: string;
   date: string;
-  type: "hackathon" | "academic" | "personal";
+  type: "hackathon" | "academic" | "personal" | "open-source";
   tags: string[];
   description: string;
   event?: string;

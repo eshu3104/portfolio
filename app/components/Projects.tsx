@@ -13,10 +13,13 @@ export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All")
   const [selectedProject, setSelectedProject] = useState<ResumeData["projects"][0] | null>(null)
 
-  const filters = ["All", "Hackathon", "Academic", "Personal"]
+  const filters = ["All", "Open Source", "Hackathon", "Academic", "Personal"]
+
+  const typeLabel = (type: string) =>
+    type.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
 
   const filtered = resumeData.projects.filter((p) =>
-    activeFilter === "All" ? true : p.type.toLowerCase() === activeFilter.toLowerCase()
+    activeFilter === "All" ? true : typeLabel(p.type).toLowerCase() === activeFilter.toLowerCase()
   )
 
   return (
@@ -66,7 +69,7 @@ export default function Projects() {
               <FiExternalLink size={14} className="absolute top-4 right-4 text-gray-400 dark:text-gray-500" />
             )}
             <h3 className="font-semibold text-base text-gray-900 dark:text-gray-100 pr-5">{project.title}</h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm">{project.type.charAt(0).toUpperCase() + project.type.slice(1)}</p>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">{typeLabel(project.type)}</p>
             <p className="text-gray-500 dark:text-gray-400 text-xs">{project.date}</p>
             <p className="text-gray-500 dark:text-gray-400 text-xs">{project.event}</p>
             <div className="flex flex-wrap gap-2 mt-3">
@@ -105,7 +108,7 @@ export default function Projects() {
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <p className="font-semibold text-base text-gray-900 dark:text-gray-100">{selectedProject.title}</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{selectedProject.type.charAt(0).toUpperCase() + selectedProject.type.slice(1)}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">{typeLabel(selectedProject.type)}</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                     {selectedProject.date} · {selectedProject.event}
                   </p>
