@@ -51,9 +51,12 @@ function readLatex(texPath: string): string {
 async function parseWithClaude(latexSource: string): Promise<object> {
   console.log("   Sending to Claude...");
 
-  const message = await anthropic.messages.create({
+  // The résumé JSON can exceed 8K output tokens, so give plenty of headroom
+  // and stream — large max_tokens on a non-streaming request risks an HTTP
+  // timeout (the SDK guards against this).
+  const stream = anthropic.messages.stream({
     model: "claude-sonnet-4-6",
-    max_tokens: 8096,
+    max_tokens: 32000,
     messages: [{
       role: "user",
       content: `
@@ -87,7 +90,18 @@ ${latexSource}
     }]
   });
 
-  const raw = message.content[0].type === "text" ? message.content[0].text : "";
+  const message = await stream.finalMessage();
+
+  if (message.stop_reason === "max_tokens") {
+    throw new Error(
+      "Claude's response was truncated at max_tokens — increase max_tokens in parseWithClaude."
+    );
+  }
+
+  const raw = message.content
+    .filter((b) => b.type === "text")
+    .map((b) => (b as { text: string }).text)
+    .join("");
   const clean = raw.replace(/^```json\s*/i, "").replace(/```\s*$/i, "").trim();
   return JSON.parse(clean);
 }
