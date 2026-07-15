@@ -357,8 +357,20 @@
 %──────────────────────────────────────────────────────────────────────
 % PERSONAL PROJECTS
 %──────────────────────────────────────────────────────────────────────
+
+
 \section{Personal Projects}
 \begin{itemize}[leftmargin=0in, label={}]
+
+  \resumeProjectHeading
+    {Numpy Model Server}{github.com/eshu3104/numpy-model-server}
+    {Python, Flask, numpy, Docker, pytest \enspace $\cdot$ \enspace ML prediction server built from raw TCP sockets}
+    {Jul 2026}
+    {https://github.com/eshu3104/numpy-model-server}
+  \begin{itemize}
+    \resumeItem{Created a concurrent HTTP/WSGI server from raw TCP sockets with a bounded thread pool, serving a Flask endpoint that handled \textbf{5 simultaneous requests in 0.51s} examined by \textbf{3} tests on pytest}
+    \resumeItem{Implemented linear regression from scratch using the numpy normal equation, matching scikit-learn coefficients to within \textbf{1e-11}, and packaged the service as a docker image}
+  \end{itemize}
 
     \resumeProjectHeading
   {Personal Portfolio Site}{eshu.earth}
