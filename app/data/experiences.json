@@ -13,9 +13,9 @@
       "id": "edu-uvic",
       "school": "University of Victoria",
       "degree": "Bachelor of Science in Computer Science",
-      "date": "Jan 2023 – Apr 2028",
+      "date": "Jan 2023 -- Apr 2028",
       "location": "Victoria, BC",
-      "gpa": "7.38/9.0 (≈ 3.70/4.0)",
+      "gpa": "7.38/9.0 (~3.70/4.0)",
       "coursework": [
         "Algorithms & Data Structures",
         "Object-Oriented Programming",
@@ -29,7 +29,7 @@
       "id": "edu-nes",
       "school": "NES International School",
       "degree": "International Baccalaureate Diploma, 40 Points",
-      "date": "Apr 2020 – May 2022",
+      "date": "Apr 2020 -- May 2022",
       "location": "Mumbai, India"
     }
   ],
@@ -39,20 +39,20 @@
       "technical": true,
       "title": "RBC Borealis Let's Solve It",
       "subtitle": "Spring 2026 Cohort",
-      "date": "Mar 2026 – May 2026",
+      "date": "Mar 2026 -- May 2026",
       "location": "Victoria, BC",
       "type": "Program",
       "tags": [
         "Python",
         "Pandas",
         "NumPy",
-        "UMAP",
         "scikit-learn",
         "PyTorch",
+        "UMAP",
         "Matplotlib",
         "GA4",
         "ML",
-        "Data Analysis"
+        "EDA"
       ],
       "highlights": [
         "Conducted exploratory data analysis on 1,500+ longitudinal youth health engagement records spanning 3+ years in a team of 4 mentees alongside 2 senior AI researchers, surfacing disengagement signals across 20+ behavioural features using Python, Pandas, and NumPy",
@@ -66,20 +66,19 @@
       "technical": true,
       "title": "Clinical Application Analyst (Co-op)",
       "subtitle": "Island Health",
-      "date": "Sep 2024 – Apr 2025",
+      "date": "Sep 2024 -- Apr 2025",
       "location": "Victoria, BC",
       "type": "Co-op",
       "tags": [
         "Power Apps",
-        "SQL",
         "SQL Server",
         "PowerShell",
         "SSIS",
         "Azure DevOps",
         "ServiceNow",
         "SharePoint",
-        "MS Access",
-        "Power Automate"
+        "Power Automate",
+        "MS Access"
       ],
       "highlights": [
         "Built multi-screen Clinical Governance Membership Management System in Power Apps, replacing manual spreadsheets and centralizing committee membership management for 5,000+ members across BC's healthcare system, with automated permission workflows, real-time roster edits, integrated PDF reports, and audit-ready compliance features",
@@ -97,13 +96,13 @@
       "technical": false,
       "title": "Teaching Assistant",
       "subtitle": "UVic ECS Career & Co-Op Department",
-      "date": "Sep 2025 – Dec 2025",
+      "date": "Sep 2025 -- Dec 2025",
       "location": "Victoria, BC",
       "type": "Part-time",
       "tags": [
         "Technical Communication",
         "Feedback",
-        "Career Development"
+        "Curriculum Support"
       ],
       "highlights": [
         "Evaluated 360+ professional documents (resumes, cover letters, portfolios) for 184 students across ENGR 130, ECS IPP, and ECS IPP Grad courses, delivering actionable, individualized feedback to improve career readiness",
@@ -115,7 +114,7 @@
       "technical": false,
       "title": "Community Leader",
       "subtitle": "University of Victoria, Residence Services",
-      "date": "Aug 2023 – Present",
+      "date": "Aug 2023 -- Present",
       "location": "Victoria, BC",
       "type": "Part-time",
       "tags": [
@@ -135,7 +134,7 @@
       "technical": false,
       "title": "Star Correspondent",
       "subtitle": "Times of India, Student Edition",
-      "date": "Feb 2019 – May 2022",
+      "date": "Feb 2019 -- May 2022",
       "location": "Mumbai, India",
       "type": "Part-time",
       "tags": [
@@ -152,7 +151,7 @@
       "technical": false,
       "title": "Presentation Developer Intern",
       "subtitle": "Access Livelihoods Consulting",
-      "date": "Apr 2021 – May 2021",
+      "date": "Apr 2021 -- May 2021",
       "location": "Mumbai, India",
       "type": "Internship",
       "tags": [
@@ -190,8 +189,8 @@
       "type": "Volunteer",
       "tags": [
         "Clean Energy",
-        "Education",
-        "Outreach"
+        "STEM Education",
+        "Community Engagement"
       ],
       "highlights": [
         "Guided 100+ students in building solar lamps and communicated the importance of clean energy, contributing to a Guinness World Record for the most solar lamps lit simultaneously"
@@ -203,7 +202,7 @@
       "id": "res-solids-lab",
       "title": "Research Volunteer",
       "subtitle": "SOLIDS Lab, University of Victoria",
-      "date": "Jan 2026 – Present",
+      "date": "Jan 2026 -- Present",
       "location": "Victoria, BC",
       "supervisor": "Dr. Navneet Popli",
       "description": "Contributing to a team of undergraduate and graduate researchers under Dr. Navneet Popli, developing project proposals in autonomous systems domains including MASS (Maritime Autonomous Surface Ships) and CAVS (Connected and Autonomous Vehicle Systems)"
@@ -212,7 +211,7 @@
       "id": "res-segal-lab",
       "title": "Research Volunteer",
       "subtitle": "SEGAL Lab, University of Victoria",
-      "date": "Oct 2024 – Dec 2024",
+      "date": "Oct 2024 -- Dec 2024",
       "location": "Victoria, BC",
       "supervisor": null,
       "description": "Supported software engineering research by assisting with general lab tasks and providing user feedback for ongoing research projects"
@@ -221,7 +220,7 @@
   "projects": [
     {
       "id": "proj-mozilla-pontoon",
-      "title": "Open Source – Mozilla Pontoon",
+      "title": "Open Source -- Mozilla Pontoon",
       "event": null,
       "award": null,
       "date": "Jul 2026",
@@ -233,9 +232,9 @@
         "CSS",
         "pytest"
       ],
-      "description": "Contributed to Mozilla's Firefox localization platform (Pontoon), a ~120K-LOC production codebase with 1.7k stars.",
+      "description": "Mozilla's Firefox localization platform",
       "highlights": [
-        "Repaired a UI regression (issue #4239) by systematically isolating the root cause, shipping a merged, maintainer-reviewed CSS fix (PR #4289) restoring header rendering across all dashboard pages",
+        "Repaired a UI regression (issue #4239) in a ~120K-LOC production codebase (1.7k stars) by systematically isolating the root cause, shipping a merged, maintainer-reviewed CSS fix (PR #4289) restoring header rendering across all dashboard pages",
         "Fixed a REST API bug (issue #4182) where renamed projects and locales returned 404s by implementing slug and locale-code history fallbacks across 3 Django REST Framework endpoints, restoring 302-redirect parity with the web UI, passing 30/30 endpoint tests"
       ]
     },
@@ -268,7 +267,7 @@
       "id": "proj-precheckai",
       "title": "PreCheck.ai",
       "event": "nwHacks 2026",
-      "award": "Finalist: Best Use of Gemini API & Best Use of .tech — 600+ participants",
+      "award": "Finalist: Best Use of Gemini API & Best Use of .tech | 600+ participants",
       "date": "Jan 2026",
       "url": "https://www.precheckai.tech",
       "type": "Hackathon",
@@ -301,10 +300,10 @@
         "Flask",
         "OpenAI",
         "RAG",
-        "Semantic Search",
+        "semantic search",
         "GPT-4o-mini"
       ],
-      "description": "AI semantic search platform processing 608 NASA publications using OpenAI embeddings.",
+      "description": "AI semantic search platform processing NASA publications for role-based research insights.",
       "highlights": [
         "Built AI semantic search platform processing 608 NASA publications (11,460 semantic chunks) using OpenAI embeddings and Python/Flask, delivering role-based research insights for scientists, educators, and funding managers",
         "Implemented GPT-4o-mini document summarization, reducing literature review time by 60%; designed context-aware query interface with follow-up question logic for 3 distinct user personas"
@@ -324,7 +323,7 @@
         "Spotify Web API",
         "WebSockets"
       ],
-      "description": "Full-stack crowd-powered Spotify voting app built in under 7 hours.",
+      "description": "Full-stack crowd-powered Spotify voting app with Kahoot-style lobby system.",
       "highlights": [
         "Built full-stack crowd-powered Spotify voting app in under 7 hours using React, Flask, Spotify Web API, and WebSockets; Kahoot-style lobby system, live voting between AI-recommended tracks, and auto-queuing logic"
       ]
@@ -339,9 +338,8 @@
       "type": "Hackathon",
       "tags": [
         "AI",
-        "Grant Discovery",
-        "Front-end",
-        "System Architecture"
+        "System Architecture",
+        "Front-end"
       ],
       "description": "AI-powered grant discovery platform enabling personalized grant matching and draft proposal generation for non-profit organizations.",
       "highlights": [
@@ -370,7 +368,7 @@
       "id": "proj-deepracer",
       "title": "AWS DeepRacer",
       "event": "Reinforcement Learning Competition",
-      "award": "5th Place out of 100 competitors",
+      "award": "5th place out of 100 competitors",
       "date": "Nov 2024",
       "url": "https://github.com/eshu3104/AWSDeepracer",
       "type": "Competition",
@@ -379,7 +377,7 @@
         "Python",
         "AWS"
       ],
-      "description": "Reward function engineering for an RL racing model on AWS DeepRacer.",
+      "description": "Engineered a reward function for an RL racing model analyzing speed, steering, and track positioning.",
       "highlights": [
         "Engineered a reward function for an RL racing model analyzing speed, steering, and track positioning through 200+ training iterations; achieved 5th place out of 100 competitors in a physical race",
         "Attained a race time of 9.729 seconds on the re:Invent 2018 track, finishing within 2 seconds of the world record"
@@ -390,42 +388,42 @@
       "title": "FairFind",
       "event": "SENG 310: Human-Computer Interaction",
       "award": null,
-      "date": "Sep 2025 – Nov 2025",
+      "date": "Sep 2025 -- Nov 2025",
       "url": "https://lwinnitoy.github.io/FairFind",
       "type": "Academic",
       "tags": [
-        "HCI",
         "HTML",
         "CSS",
         "JavaScript",
         "Figma",
+        "UX Research",
         "Usability Testing"
       ],
-      "description": "Full HCI research-to-prototype pipeline for a fair-finding application.",
+      "description": "Full HCI research-to-prototype pipeline for a fairness-focused product discovery platform.",
       "highlights": [
         "Led a full HCI research-to-prototype pipeline: ethnographic research and surveys with 20+ participants, persona and journey mapping, low-fidelity sketches, HTML/CSS/JS medium-fidelity prototype, heuristic evaluation, and usability testing",
         "Identified 10+ usability issues across Nielsen's heuristics through iterative testing; refined design to achieve a mean satisfaction score of 4.17/5.0 with 100% task completion across all test participants"
       ]
     },
     {
-      "id": "proj-uvic-residence-portal",
+      "id": "proj-residence-portal",
       "title": "UVic Residence Maintenance Portal Redesign",
       "event": "CSC 375: Systems Analysis",
       "award": null,
-      "date": "Sep 2025 – Nov 2025",
+      "date": "Sep 2025 -- Nov 2025",
       "url": "https://crayon-pants-25477491.figma.site",
       "type": "Academic",
       "tags": [
         "Figma",
         "UML",
         "BPMN",
-        "Systems Analysis",
-        "UX Design"
+        "Requirements Engineering",
+        "WCAG 2.2"
       ],
       "team": [
         "G20 Software Solutions (6-person team)"
       ],
-      "description": "Unified web-based maintenance portal for 2,000+ residence students, replacing the fragmented StarRez system.",
+      "description": "Unified web-based maintenance portal for 2,000+ residence students replacing the fragmented StarRez system.",
       "highlights": [
         "Led a 6-person consulting team (G20 Software Solutions) to design a unified web-based maintenance portal for 2,000+ residence students, replacing the fragmented StarRez system to improve request tracking and communication transparency",
         "Delivered full UML domain model, BPMN process models, functional/non-functional requirements, use cases, and Figma prototypes across 3 user roles (residents, staff, contractors), designed for WCAG 2.2 compliance and StarRez integration"
@@ -436,7 +434,7 @@
       "title": "Web Crawler, Index-Search Tool, Priority Queue, Password Analysis Tool",
       "event": "SENG 265: Software Development Methods",
       "award": null,
-      "date": "Sep 2023 – Dec 2023",
+      "date": "Sep 2023 -- Dec 2023",
       "url": null,
       "type": "Academic",
       "tags": [
@@ -445,9 +443,32 @@
         "Regex",
         "Bash"
       ],
-      "description": "Four software projects developed across the fall term.",
+      "description": "4 software projects developed across the fall term.",
       "highlights": [
         "Developed 4 software projects in C, Python, Regex, and Bash across the fall term"
+      ]
+    },
+    {
+      "id": "proj-numpy-model-server",
+      "title": "Numpy Model Server",
+      "event": null,
+      "award": null,
+      "date": "Jul 2026",
+      "url": "https://github.com/eshu3104/numpy-model-server",
+      "type": "Personal",
+      "tags": [
+        "Python",
+        "Flask",
+        "NumPy",
+        "Docker",
+        "pytest",
+        "TCP Sockets",
+        "Linear Regression"
+      ],
+      "description": "ML prediction server built from raw TCP sockets.",
+      "highlights": [
+        "Created a concurrent HTTP/WSGI server from raw TCP sockets with a bounded thread pool, serving a Flask endpoint that handled 5 simultaneous requests in 0.51s examined by 3 tests on pytest",
+        "Implemented linear regression from scratch using the numpy normal equation, matching scikit-learn coefficients to within 1e-11, and packaged the service as a docker image"
       ]
     },
     {
@@ -469,28 +490,27 @@
         "OpenAI",
         "GitHub Actions",
         "RAG",
-        "TTS",
-        "VRM"
+        "TTS"
       ],
-      "description": "Personal portfolio site with RAG-powered chat, TTS, and 3D avatar lip sync.",
+      "description": "Full-featured personal portfolio with RAG chatbot, TTS, 3D VRM avatar lip sync, and automated knowledge-base sync.",
       "highlights": [
-        "Built a retrieval-augmented generation pipeline using OpenAI embeddings and Supabase RPC vector search, retrieving the top-5 most relevant chunks from resume and project data at a 0.2 cosine similarity threshold and feeding them as context to GPT-4o mini",
-        "Automated knowledge-base sync via a GitHub Actions workflow triggered on resume.tex commits — uses Claude to parse LaTeX into structured JSON, re-embeds with OpenAI text-embedding-3-small, and upserts to Supabase",
-        "Streamed chat completions token-by-token via the ReadableStream API, chunking output at sentence boundaries or every 10 words to pipeline TTS fetches before the full response completes",
-        "Built a low-latency TTS pipeline using OpenAI tts-1, switching from MP3 to raw PCM output (Int16, 24kHz mono) and manually constructing AudioBuffer objects to bypass the browser MP3 decoder entirely",
-        "Implemented a sequential fetch queue feeding a downstream playback queue, ensuring multi-chunk TTS audio plays in order without overlap regardless of network jitter",
-        "Drove real-time lip sync on a Three.js VRM avatar by reading RMS amplitude from a WebAudio AnalyserNode at 60fps and lerping VRM mouth blend shapes frame-by-frame",
-        "Optimised the VRM render loop by caching all bone references on load, removing per-frame getNormalizedBoneNode calls, achieving a stable 60fps on mid-range hardware",
-        "Enforced per-IP rate limiting across chat and TTS endpoints via Upstash Redis sliding windows (10 req / 60 s), logged all interactions to Supabase, and authored a GDPR-compliant privacy policy covering 5 jurisdictions",
+        "Built a retrieval-augmented generation pipeline using OpenAI embeddings and Supabase RPC vector search, retrieving the top-5 most relevant chunks from resume and project data at a 0.2 cosine similarity threshold and feeding them as context to GPT-4o mini, grounding every response in accurate personal data",
+        "Automated knowledge-base sync via a GitHub Actions workflow triggered on resume.tex commits — uses Claude to parse LaTeX into structured JSON, re-embeds with OpenAI text-embedding-3-small, and upserts to Supabase, keeping the chat current with zero manual steps",
+        "Streamed chat completions token-by-token via the ReadableStream API, chunking output at sentence boundaries or every 10 words to pipeline TTS fetches before the full response completes, minimising time-to-first-audio",
+        "Built a low-latency TTS pipeline using OpenAI tts-1, switching from MP3 to raw PCM output (Int16, 24kHz mono) and manually constructing AudioBuffer objects to bypass the browser MP3 decoder entirely, cutting per-chunk decode latency to near zero",
+        "Implemented a sequential fetch queue feeding a downstream playback queue, ensuring multi-chunk TTS audio plays in order without overlap regardless of network jitter between OpenAI TTS API responses",
+        "Drove real-time lip sync on a Three.js VRM avatar by reading RMS amplitude from a WebAudio AnalyserNode at 60fps and lerping VRM mouth blend shapes frame-by-frame, syncing amplitude into a React Three Fiber frame-loop ref to avoid stale closure bugs",
+        "Optimised the VRM render loop by caching all bone references on load, removing per-frame getNormalizedBoneNode calls, and calling vrm.update(delta) last to prevent bone rotation overwrites, achieving a stable 60fps on mid-range hardware",
+        "Enforced per-IP rate limiting across chat and TTS endpoints via Upstash Redis sliding windows (10 req / 60 s), logged all interactions to Supabase with IP, question, and response fields, and authored a GDPR-compliant privacy policy covering data collection, retention schedules, sub-processors, and user rights across 5 jurisdictions",
         "Shipped on Next.js 14, React 19, and Tailwind v4 with a 3-tab navigation system, hash-synced deep linking, a filterable project grid across 4 categories, and modal drill-downs for 15 projects"
       ]
     },
     {
-      "id": "proj-discord-weather-bot",
+      "id": "proj-tooblue",
       "title": "Discord Weather Bot (TooBlue)",
       "event": null,
       "award": null,
-      "date": "May 2024 – Jun 2024",
+      "date": "May 2024 -- Jun 2024",
       "url": null,
       "type": "Personal",
       "tags": [
@@ -498,7 +518,7 @@
         "Discord API",
         "OpenWeatherMap API"
       ],
-      "description": "Discord bot integrating OpenWeatherMap API to display real-time weather data.",
+      "description": "Discord bot displaying real-time weather data on demand.",
       "highlights": [
         "Built a Discord bot in Node.js integrating the OpenWeatherMap API to display real-time weather data including temperature, humidity, pressure, visibility, and wind metrics on demand"
       ]
@@ -517,7 +537,7 @@
         "BeautifulSoup",
         "Pillow"
       ],
-      "description": "Python application auto-fetching YouTube channel stats and generating custom trading cards.",
+      "description": "Python application auto-fetching channel stats and generating custom trading cards.",
       "highlights": [
         "Developed a Python application integrating YouTube Data API and BeautifulSoup web scraping to auto-fetch channel stats, avatars, and quotes, then programmatically overlay data onto custom card templates via Pillow"
       ]
@@ -541,7 +561,7 @@
       ]
     },
     {
-      "id": "proj-student-grading-interface",
+      "id": "proj-grading-interface",
       "title": "Student Grading Interface",
       "event": null,
       "award": null,
@@ -552,7 +572,7 @@
         "Visual Basic",
         "MS Access"
       ],
-      "description": "Desktop grade management application enabling educators to input, store, and link student academic records.",
+      "description": "Desktop grade management application for educators.",
       "highlights": [
         "Developed a desktop grade management application in Visual Basic and MS Access enabling educators to input, store, and link student academic records"
       ]
@@ -639,7 +659,7 @@
       "id": "vol-python-workshop",
       "role": "Python Workshop Assistant / Mentor",
       "organization": "UVic WEST x Redbrick",
-      "date": "Jun 2024 – Aug 2024",
+      "date": "Jun 2024 -- Aug 2024",
       "location": "Victoria, BC",
       "highlights": [
         "Mentoring 60+ students per session with Python exercises, case studies, and programming fundamentals via Zoom, supporting Women in Engineering & STEM (WEST) and Redbrick"
@@ -659,7 +679,7 @@
       "id": "vol-lespoir",
       "role": "Founder & Team Lead",
       "organization": "L'espoir, Anti-Bullying Social Media Campaign",
-      "date": "Apr 2020 – May 2022",
+      "date": "Apr 2020 -- May 2022",
       "location": "International",
       "highlights": [
         "Led an English-French international campaign addressing community wellbeing and social justice through cross-cultural communication"
@@ -669,14 +689,14 @@
       "id": "vol-sports-conversation",
       "role": "Department Head",
       "organization": "The Sports Conversation, Media & Podcasting",
-      "date": "Apr 2020 – May 2022",
+      "date": "Apr 2020 -- May 2022",
       "location": null,
       "highlights": [
         "Led team creating social media content and managing podcast production, overseeing content strategy and coordination"
       ]
     },
     {
-      "id": "vol-nps-judge",
+      "id": "vol-writing-judge",
       "role": "Judge",
       "organization": "National Public School, Creative Writing Competition",
       "date": "Jan 2021",
@@ -713,7 +733,7 @@
       "id": "award-health-safety-5th",
       "name": "Health & Safety Checker 5th Place",
       "issuer": "Tenfold Cursor Hackathon",
-      "date": "2025"
+      "date": "Sep 2025"
     },
     {
       "id": "award-coop-scholarship",
